@@ -10,7 +10,9 @@ import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import HoverRating from "./GoalDifficultyScale";
+import images from "../assets/images/index.js";
 
+//need to build handle submit and axios post request
 export function SetGoalForm() {
     // const makeEmptyGoal = () => {
     //     return {
@@ -21,11 +23,6 @@ export function SetGoalForm() {
     //         subtasks: [],
     //     };
     // };
-    
-    // const Goals = () => {
-    //     const [goals, setGoals] = useState(makeEmptyGoal());
-    //     const [subtasks, setSubtasks] = useState([]);
-
     // const handleSubmit = (event) => {
     //     event.preventDefault();
     //     axios
@@ -81,7 +78,7 @@ export function SetGoalForm() {
     return (
         <Container>
         <form className={classes.root}>
-        <label> Let's get started by setting your plan(t) goals!</label>
+        <h2>Let's get started by setting your plan(t) goals!</h2>
         <br></br>
             <TextField
                 name="title"
@@ -142,6 +139,8 @@ export function SetGoalForm() {
                 </div>
             ))}
         <br></br>
+        <h3>Here is what your plant can look like as you complete your tasks!</h3>
+        <img src={images.gif.path} alt={images.gif.alt} />
         <Button
         className={classes.button}
         variant="contained" 

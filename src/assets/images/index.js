@@ -22,6 +22,11 @@ const images = {
     part6: {
         path:  './06.png',
         alt:  'full blooms'
+    },
+    
+    gif: {
+        path:  './gif.gif',
+        alt:  'checkout the growing plant'
     }
 };
 export default images;

@@ -58,8 +58,8 @@ export const GetInspoQuote = () => {
         "You never know. You hope for the best and make do with what you get -Nick Fury",
         "I make grave mistakes all the time. Everything seems to work out - Thor",
         "But what is grief, if not love persevering? - Vision"
-      ];
-      
+    ];
+
       const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
 
     return (
