@@ -1,44 +1,92 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { PageContent } from "./components/PageContent";
 import { GetInspoQuote } from "./containers/GetInspoQuote";
 import { Buttons } from "./components/Buttons";
 import { Banner } from "./components/Banner";
-import plantData from "./assets/goalsData";
+import axios from 'axios';
+
 
 function App() {
   const [currentPageName, setCurrentPageName] = useState("In-Progress");
-  const [lastName, setLastName] = useState("");
+  const [goalsData, setGoalsData] = useState([]);
+  const [numberOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
+
+  const [selectedGoal, setSelectedGoal] = useState({
+    title: "",
+    subtasks: [],
+    id: null, 
+  });
+
+  useEffect(() => {    
+    axios
+    .get(`${process.env.REACT_APP_BACKEND_URL}/goals`)
+    .then((response) => {
+      setGoalsData(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    let count = 0;
+    const getNumberOfCompletedTasks = goalsData.map((goal) => {
+        goal.tasks.map((task) => {
+            if (task.is_complete === true)
+            count += 1;
+        });
+    });
+    setNumberOfCompletedTasks(count);
+}, [goalsData]);
 
 
-    // const currentPageName = "Home";
+  const selectGoal = (goal) => {
+    setSelectedGoal(goal);
+  };
+
+  const createNewGoal = (newGoal) => {
+    axios
+    .post(`${process.env.REACT_APP_BACKEND_URL}/goals`, newGoal)
+    .then((response) => {
+      const goals = [...goalsData];
+      goals.push(response.data);
+      setGoalsData(goals);
+    });
+  };
+
+  const showSelectedGoal = (selectedGoal) => {
+    if (selectedGoal.id) {
+      return (
+        <div>
+          <h2>{selectedGoal.title}</h2>
+          <ul>
+            {selectedGoal.tasks.map((subtask) => {
+              return (
+                <li key={subtask.id}>
+                  {subtask.title}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
+  };
+  
   const handleSetPageName = (pageName) => {
     setCurrentPageName(pageName);
   }
-  return(
+
+  return (
   <div className="App">
       <Banner/>
       <GetInspoQuote />
       <Buttons setCurrentPageName={setCurrentPageName}/>
-      <PageContent currentPageName={currentPageName}/>
+      <PageContent 
+      currentPageName={currentPageName}
+      goalsData={goalsData}
+      numberOfCompletedTasks={numberOfCompletedTasks}
+      />
   </div>
   );
 }
 
 export default App;
 
-{/* <div class="container">
-  
-  <div class="New-Goal-Name"></div>
-  <div class="Settings">
-    <div class="Deadline"></div>
-    <div class="Difficulty-Scale"></div>
-  </div>
-  <div class="Description\:"></div>
-  <div class="Description-box"></div>
-  <div class="Subtasks\:"></div>
-  <div class="Subtask-list">
-    <HandleSubtasks />
-    </div>
-  <div class="Add-to-Nursery-Button"></div>
-  <div class="Plant-gif"></div>
-</div> */}

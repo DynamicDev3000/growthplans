@@ -50,6 +50,14 @@ export const GetInspoQuote = () => {
         "Starting is the most difficult step - but you can do it",
         "Don't forget to enjoy the journey",
         "It's not a mistake, it's a learning opportunity",
+        "Compromise where you can. Where you can't, don't. Even if everyone is telling you that something wrong is something right. Even if the whole world is telling you to move, it is your duty to plant yourself like a tree, look them in the eye, and say, 'No, *you* move'— Sharon Carter",
+        "Everyone fails at who they're supposed to be, Thor. The measure of a person, of a hero, is how well they succeed at being who they are — Frigga",
+        "You can do it. You can do anything. You’re the world’s greatest grandma.” —Cassie Lang",
+        "Today we don’t fight for one life, we fight for all of them -Black Panther",
+        "I’m made of rocks, as you can see, but don’t let that intimidate you. You don’t need to be afraid, unless you’re made of scissors! Just a little rock-paper-scissors joke for you! —Korg",
+        "You never know. You hope for the best and make do with what you get -Nick Fury",
+        "I make grave mistakes all the time. Everything seems to work out - Thor",
+        "But what is grief, if not love persevering? - Vision"
       ];
       
       const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];

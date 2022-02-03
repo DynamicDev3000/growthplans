@@ -1,7 +1,7 @@
 import React from "react";
 import { ContentInProgressNursery } from "./ContentInProgressNursery";
 import { ContentInspirationStation } from "./ContentInspirationStation";
-import { ContentSetGoals } from "./ContentSetGoals";
+import { ContentSetGoals } from "./SetGoalForm";
 
 
 export function Buttons(props) {
