@@ -1,6 +1,46 @@
 .App {
   text-align: center;
 }
+.pic{
+  width: 350px;
+  height: 350px;
+}
+/* .App {
+  display: grid; 
+  grid-auto-flow: row dense; 
+  grid-auto-rows: 1fr 1fr 1fr; 
+  grid-template-columns: 2fr; 
+  grid-template-rows: 0.9fr 0.6fr 0.4fr 2.4fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Header"
+    "Inspo"
+    "Navigation"
+    "Goals-Area"; 
+  justify-content: center; 
+  align-content: center; 
+  justify-items: stretch; 
+  align-items: stretch; 
+  width: 600px; 
+  height: 800px; 
+}
+.Goals-Area {
+  display: grid; 
+  grid-auto-rows: 1fr 1fr 1fr 1fr; 
+  grid-template-columns: 0.6fr 1.4fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ". ."; 
+  grid-area: Goals-Area; 
+}
+.Header { grid-area: Header; }
+.Inspo { grid-area: Inspo; }
+.Navigation { grid-area: Navigation; } */
 
 .App-logo {
   height: 40vmin;

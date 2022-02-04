@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import axios from "axios";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -11,9 +10,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import HoverRating from "./GoalDifficultyScale";
 import images from "../assets/images/index.js";
+import axios from 'axios';
+import App from "../App";
 
 //need to build handle submit and axios post request
-export function SetGoalForm() {
+export function SetGoalForm(props) {
     // const makeEmptyGoal = () => {
     //     return {
     //         title: "",
@@ -23,29 +24,41 @@ export function SetGoalForm() {
     //         subtasks: [],
     //     };
     // };
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios
-    //         .post('https://growthplans.herokuapp.com/goals', {
-    //             title: goals.title,
-    //             due_date: goals.due_date,
-    //             why: goals.why,
-    //             difficulty: goals.difficulty,
-    //             subtasks: subtasks,
-    //         })
-    //         .then((response) => {
-
     const [goalFields, setGoalFormFields] = useState({
-            title: "",
-            due_date: "",
-            why: "",
-            difficulty: "",
-        });
+        title: "",
+        due_date: "",
+        why: "",
+        difficulty: "",
+    });
 
     const [inputFields, setInputFields]  = useState([
             {taskDescription: ''},
             ]);
+    
+    const handleSubmitNewGoal = (submitEvent, props) => {
+        submitEvent.preventDefault();
 
+        const newGoal = {
+            title: goalFields.title,
+            due_date: goalFields.due_date,
+            why: goalFields.why,
+            difficulty: goalFields.difficulty,
+            tasks: inputFields
+        };
+
+        props.addNewGoal(newGoal);
+
+        setGoalFormFields({
+            title: "",
+            due_date: "",
+            why: "",
+            difficulty: "",
+        })
+        setInputFields({
+            taskDescription: ""
+        });
+    };
+                
     const handleChangeInput = (index, event) => {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
@@ -77,7 +90,7 @@ export function SetGoalForm() {
 
     return (
         <Container>
-        <form className={classes.root}>
+        <form className={classes.root} onSubmit={handleSubmitNewGoal}>
         <h2>Let's get started by setting your plan(t) goals!</h2>
         <br></br>
             <TextField
@@ -141,12 +154,14 @@ export function SetGoalForm() {
         <br></br>
         <h3>Here is what your plant can look like as you complete your tasks!</h3>
         <img src={images.gif.path} alt={images.gif.alt} />
+        <br></br>
         <Button
         className={classes.button}
         variant="contained" 
         color="primary" 
         type="submit" 
         endIcon={<Icon>send</Icon>}
+        onClick={handleSubmitNewGoal}
         >Send to Nursery</Button>
         <Button variant="outlined" startIcon={<DeleteIcon />}>
         Delete
