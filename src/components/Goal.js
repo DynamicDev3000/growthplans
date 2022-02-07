@@ -2,36 +2,30 @@ import React, {useState, useEffect} from "react";
 import images from "../assets/images/index.js";
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import "../App.css";
 import axios from "axios";
 
 export function Goal(props) {
     const goal = props.goal;
     const plantImage = props.plantImage;
-
+    const [todos, setTodos] = useState([]);
     const [goalsData, setGoalsData] = useState([]);
 
-    const [todos, setTodos] = useState(goal.tasks);
-
-    const completeTodo = taskId => {
-    // const newTodos = [...todos];
-    // newTodos[index].is_complete = true;
-    // setTodos(newTodos);
+    const completeTodo = (task) => {
     axios
-        .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${taskId.id}/mark_complete`)
+        .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_complete`)
         .then(res => {
             console.log(res);
         })
     };
 
-    const removeTodo = index => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    const removeTodo = (task) => {
     axios 
-        .delete(`https://growthplans.herokuapp.com/goals/${goal.id}/${newTodos[index].id}`)
+        .delete(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}`)
         .then(res => {
             console.log(res);
+            setGoalsData(res.data);
         }
     )};
 
@@ -42,6 +36,7 @@ export function Goal(props) {
             .delete(`https://growthplans.herokuapp.com/goals/${goal.id}`)
             .then(res => {
                 console.log(res);
+                setGoalsData(res.data);
             })
     }
     };
@@ -57,16 +52,23 @@ export function Goal(props) {
             <div key = {task.id}
             className="todo"
             style={{ textDecoration: task.is_complete ? "line-through" : "" }}
-          >       
-                <li key={task.id}>{task.description}</li>
+        >       
+                <li key={task.id}> {task.description}</li>
                 <div>
-        <button onClick={(event) => completeTodo(event, task.id)}>Complete</button>
-        <button onClick={(event) => removeTodo(event, task.id)}>x</button>
-      </div>
+        <button onClick={() => completeTodo(task)}>Complete</button>
+        <button onClick={() => removeTodo(task)}>x</button>
+        </div>
         </div>
         )
         })}
         </div>
+        <Button
+        variant="outlined"
+        type="edit"
+        onClick={() => props.editGoal(goal.id)}
+        startIcon={<EditIcon />}>
+        Edit Plan(t)
+        </Button>
         <Button 
         variant="outlined" 
         type="submit"
@@ -74,7 +76,6 @@ export function Goal(props) {
         startIcon={<DeleteIcon />}>
         Delete Plan(t)
         </Button>
-
         </>
     );
 }

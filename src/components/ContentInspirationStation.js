@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Draggable from "react-draggable";
 import {Goal} from "./Goal";
 import images from "../assets/images/index.js";
-import {ContentInProgressNursery} from "./ContentInProgressNursery";
+import { countNumberOfCompletedTasks, selectImage } from "./ContentInProgressNursery";
 
 export function ContentInspirationStation(props) {
 
@@ -13,17 +13,20 @@ export function ContentInspirationStation(props) {
         }}>'
     <h1>Inspiration Station</h1>
     <h2>Here are some of the goals you have completed!</h2>
+    {props.goalsData.map((goal) => {
+                if (goal.is_goal_completed === true) {
+                const total = countNumberOfCompletedTasks(goal);
+                console.log(total);
+                const plantImage = selectImage(total);
+                return (
                 <Draggable> 
-                    <div>
-                    <img src={images.part6} alt="part6"></img>
-                    </div>
+                    <Goal goal={goal} key={goal.id}
+                    plantImage={plantImage}
+                    goalsData={props.goalsData} />
                 </Draggable>
-                <Draggable>
-                    <div>
-                    <img src={images.part5} alt="part5"></img>
-                    </div>
-                </Draggable>
+                )
+            }
+            })}
     </div>
     )
 }
-

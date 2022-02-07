@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import images from "../assets/images/index.js";
 import { Goal } from "./Goal";
 
-const countNumberOfCompletedTasks = (goal) => {
+export const countNumberOfCompletedTasks = (goal) => {
     let count = 0;
     for (let j = 0; j < goal.tasks.length; j++) {
         if (goal.tasks[j].is_complete === true) {
@@ -12,7 +12,7 @@ const countNumberOfCompletedTasks = (goal) => {
     return count;
 }
 
-const selectImage = (numberOfCompletedTasks) => {
+export const selectImage = (numberOfCompletedTasks) => {
     if (numberOfCompletedTasks > 4) {
         return (images.part6);
     } else if (numberOfCompletedTasks === 4){
@@ -29,40 +29,22 @@ const selectImage = (numberOfCompletedTasks) => {
 }
 
 export function ContentInProgressNursery(props) {
-    const [goalCompleted, setGoalCompleted] = useState([]);
-    const [goalInProgress, setGoalInProgress] = useState([]);
-    
-    const handleGoalCompleted = (goal) => {
-        props.goalsData.map((goal) => {
-        if (goal.is_goal_completed === true) {
-            setGoalCompleted(goalCompleted.concat(goal));
-        }
-    });
-    }
-    const handleGoalInProgress = (goal) => {
-        props.goalsData.map((goal) => {
-        if (goal.is_goal_completed === false) {
-            setGoalInProgress(goalInProgress.concat(goal));
-        }
-    });
-    }
-
-    useEffect(() => {
-        handleGoalCompleted();
-        handleGoalInProgress();
-    }, [props.goalsData]);
-
 
     return (
         <div>
-            {goalInProgress.map((goal) => {
+            {props.goalsData.map((goal) => {
+                if (goal.is_goal_completed === false) {
                 const total = countNumberOfCompletedTasks(goal);
                 console.log(total);
                 const plantImage = selectImage(total);
-                return <Goal goal={goal} key={goal.id}
+                return (
+                    <Goal goal={goal} key={goal.id}
                     plantImage={plantImage}
                     goalsData={props.goalsData} />
+                )
+            }
             })}
         </div>
-    );
-};
+    )
+}
+
