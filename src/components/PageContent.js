@@ -16,6 +16,8 @@ export function PageContent(props) {
     addNewGoal={props.addNewGoal}/>;
   }
   if (currentPage === "Inspiration-Station") {
-    return <ContentInspirationStation />;
+    return <ContentInspirationStation 
+    goalsData={props.goalsData}
+    numberOfCompletedTasks={props.numberOfCompletedTasks}/>;
   }
 }

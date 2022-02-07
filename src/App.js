@@ -21,34 +21,20 @@ function App() {
       });
   }, []);
 
-  // const goalsData = [
-  //   {
-  //   "id": 1,
-  //   "tasks": [
-  //       {
-  //           "description": "Narrow down ideas",
-  //           "goal_id": 1,
-  //           "id": 1,
-  //           "is_complete": false
-  //       },
-  //       {
-  //           "description": "Look up artists on fiverr",
-  //           "goal_id": 1,
-  //           "id": 2,
-  //           "is_complete": false
-  //       },
-
-  const addNewGoal = (NewGoal) => {
+  const addNewGoal = (newGoal) => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/goals`, { NewGoal })
+      .post(`${process.env.REACT_APP_BACKEND_URL}/goals`, newGoal)
       .then((response) => {
         const goals = [...goalsData];
         goals.push(response.data);
         setGoalsData(goals);
+        console.log(goals);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("Error:", error);
-        alert("Couldn't create a new goal.");
+        alert("Couldn't create a new goal because a field is missing");
+        
       });
   };
 

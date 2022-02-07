@@ -7,23 +7,31 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
-import HoverRating from "./GoalDifficultyScale";
+import GoalDifficultyScale from "./GoalDifficultyScale";
 import images from "../assets/images/index.js";
 import axios from 'axios';
 import App from "../App";
+import { v4 as uuidv4 } from 'uuid';
 
-//need to build handle submit and axios post request
+
+import Rating from '@mui/material/Rating';
+import Box from '@mui/material/Box';
+import StarIcon from '@mui/icons-material/Star';
+
+const labels = {
+    0.5: 'This drink, I like it. Another!',
+    1: 'Dude, you’re embarrassing me in front of the wizards.',
+    1.5: 'I get emails from a raccoon, so nothing sounds crazy anymore.',
+    2: "Don't worry, she's got help",
+    2.5: 'I can do this all day',
+    3: "We're fighting an army of robots. And I have a bow and arrow.",
+    3.5: 'Puny God',
+    4: 'Dormammu, I’ve come to bargain.',
+    4.5: 'I am Iron Man',
+    5: 'Avengers, assemble!',
+};
+
 export function SetGoalForm(props) {
-    // const makeEmptyGoal = () => {
-    //     return {
-    //         title: "",
-    //         due_date: "",
-    //         why: "",
-    //         difficulty: "",
-    //         subtasks: [],
-    //     };
-    // };
     const [goalFields, setGoalFormFields] = useState({
         title: "",
         due_date: "",
@@ -32,10 +40,17 @@ export function SetGoalForm(props) {
     });
 
     const [inputFields, setInputFields]  = useState([
-            {taskDescription: ''},
+            {description: ''},
             ]);
     
-    const handleSubmitNewGoal = (submitEvent, props) => {
+    // const [inputFields, setInputFields] = useState([
+    //     { id: uuidv4(), taskDescription: '' },
+    //           ]);
+
+    const [value, setValue] = useState(2);
+    const [hover, setHover] = useState(-1);
+
+    const handleSubmitNewGoal = (submitEvent) => {
         submitEvent.preventDefault();
 
         const newGoal = {
@@ -43,37 +58,53 @@ export function SetGoalForm(props) {
             due_date: goalFields.due_date,
             why: goalFields.why,
             difficulty: goalFields.difficulty,
-            tasks: inputFields
+            tasks: [...inputFields]
         };
 
         props.addNewGoal(newGoal);
-
+        console.log(newGoal);
+        console.log(inputFields);
+        console.log(goalFields.difficulty);
         setGoalFormFields({
             title: "",
             due_date: "",
             why: "",
             difficulty: "",
         })
-        setInputFields({
-            taskDescription: ""
-        });
+        setInputFields([{
+            description: ""
+        }]);
     };
-                
+
     const handleChangeInput = (index, event) => {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputFields(values);
         }
 
-    const handleAddFields = () => {
-        setInputFields([...inputFields, {taskDescription: ''}])
-    }   
+    // const handleChangeInput = (id, event) => {
+    //     const newInputFields = inputFields.map(i => {
+    //       if(id === i.id) {
+    //         i[event.target.name] = event.target.value
+    //       }
+    //       return i;
+    //     })
         
+    //     setInputFields(newInputFields);
+    //   }
+    const handleAddFields = () => {
+        setInputFields([...inputFields, {description: ''}])
+    }  
+    // const handleAddFields = () => {
+    //     setInputFields([...inputFields, { id: uuidv4(),  taskDescription: ''}])
+    // }
+    
     const handleRemoveFields = id => {
             const values  = [...inputFields];
             values.splice(values.findIndex(value => value.id === id), 1);
             setInputFields(values);
     }
+
 
     const useStyles = makeStyles((theme) => ({
             root: {
@@ -96,6 +127,7 @@ export function SetGoalForm(props) {
             <TextField
                 name="title"
                 label="Enter a goal title"
+                type='text'
                 value={goalFields.title}
                 onChange={(event) => setGoalFormFields({...goalFields, title: event.target.value})}
                 variant="outlined"
@@ -104,24 +136,45 @@ export function SetGoalForm(props) {
         <br></br>
         <label>Deadline</label>
         <br></br>
-            <input type="date" name="deadline" placeholder="Enter a deadline" 
+            <input type="date" name="deadline" placeholder="Enter a deadline"
+            value={goalFields.due_date}
             onChange={(event) => setGoalFormFields({...goalFields, due_date: event.target.value})}
             />
         <br></br>
         <br></br>
         <label>Difficulty </label>
         <br></br>
-        <HoverRating
-            name="difficulty"
-            value={goalFields.difficulty}
-            onChange={(event) => setGoalFormFields({...goalFields, difficulty: event.target.value})}
+        <Box
+        sx={{
+        width: 600,
+        display: 'flex',
+        alignItems: 'center',
+        }}
+        >
+        <Rating
+        name="difficulty"
+        value={value}
+        precision={0.5}
+        onChange={(event, newValue) => {
+            setValue(newValue);
+            setGoalFormFields({...goalFields, difficulty: newValue});
+        }}
+        onChangeActive={(event, newHover) => {
+            setHover(newHover);
+        }}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit"/>}
         />
+        {value !== null && (
+        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+        )}
+        </Box>
         <br></br>
         <br></br>
         <label>Goal Description - why do you want to accomplish this?</label>
             <TextField
                 name = "why"
                 label="Enter a goal description"
+                type='text'
                 value={goalFields.why}
                 onChange={(event) => setGoalFormFields({...goalFields, why: event.target.value})}
                 variant="outlined"
@@ -135,11 +188,13 @@ export function SetGoalForm(props) {
             {inputFields.map((inputField, index) => (
                 <div key={index}>
                 <TextField
-                    name="taskDescription"
-                    label="Task Description"
-                    value={inputField.taskDescription}
+                    name="description"
+                    label="description"
+                    type='text'
+                    value={inputField.description}
                     variant="outlined"
                     onChange={event => handleChangeInput(index, event)}
+                    // onChange={event => handleChangeInput(inputField.id, event)}
                     />
                 <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
                 <RemoveIcon />
@@ -163,9 +218,6 @@ export function SetGoalForm(props) {
         endIcon={<Icon>send</Icon>}
         onClick={handleSubmitNewGoal}
         >Send to Nursery</Button>
-        <Button variant="outlined" startIcon={<DeleteIcon />}>
-        Delete
-        </Button>
         </form>
         </Container>
     )

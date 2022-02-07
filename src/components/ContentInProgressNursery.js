@@ -29,10 +29,33 @@ const selectImage = (numberOfCompletedTasks) => {
 }
 
 export function ContentInProgressNursery(props) {
+    const [goalCompleted, setGoalCompleted] = useState([]);
+    const [goalInProgress, setGoalInProgress] = useState([]);
+    
+    const handleGoalCompleted = (goal) => {
+        props.goalsData.map((goal) => {
+        if (goal.is_goal_completed === true) {
+            setGoalCompleted(goalCompleted.concat(goal));
+        }
+    });
+    }
+    const handleGoalInProgress = (goal) => {
+        props.goalsData.map((goal) => {
+        if (goal.is_goal_completed === false) {
+            setGoalInProgress(goalInProgress.concat(goal));
+        }
+    });
+    }
+
+    useEffect(() => {
+        handleGoalCompleted();
+        handleGoalInProgress();
+    }, [props.goalsData]);
+
 
     return (
         <div>
-            {props.goalsData.map((goal) => {
+            {goalInProgress.map((goal) => {
                 const total = countNumberOfCompletedTasks(goal);
                 console.log(total);
                 const plantImage = selectImage(total);
