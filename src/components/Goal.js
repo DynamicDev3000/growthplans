@@ -9,44 +9,39 @@ import axios from "axios";
 export function Goal(props) {
     const goal = props.goal;
     const plantImage = props.plantImage;
-    const [todos, setTodos] = useState([]);
-    const [goalsData, setGoalsData] = useState([]);
 
     const completeTodo = (task) => {
     axios
         .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_complete`)
         .then(res => {
-            console.log(res);
+            props.refreshData();
         })
-    };
+        };
 
     const removeTodo = (task) => {
     axios 
         .delete(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}`)
         .then(res => {
-            console.log(res);
-            setGoalsData(res.data);
-        }
-    )};
+            props.refreshData();
+        })
+        };
 
-//trigger the useEffect function to re-render the page
     const removeGoal = () => {
         if (window.confirm("Are you really sure you want to delete your whole plan(t)?")) {
         axios
             .delete(`https://growthplans.herokuapp.com/goals/${goal.id}`)
             .then(res => {
-                console.log(res);
-                setGoalsData(res.data);
+                props.refreshData();
             })
+        }
     }
-    };
+
 
     return (
         <>
         <div key={goal.id}>
-        <h3><ul>{goal.title}</ul></h3>
         <img src={plantImage.path} alt={plantImage.alt} className="pic"/>
-
+        <h3><ul>{goal.title}</ul></h3>
         {goal.tasks.map((task) => {
         return(  
             <div key = {task.id}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import images from "../assets/images/index.js";
 import { Goal } from "./Goal";
+import Draggable from "react-draggable";
+import Carousel from 'react-bootstrap/Carousel'
 
-export const countNumberOfCompletedTasks = (goal) => {
+const countNumberOfCompletedTasks = (goal) => {
     let count = 0;
     for (let j = 0; j < goal.tasks.length; j++) {
         if (goal.tasks[j].is_complete === true) {
@@ -12,7 +14,7 @@ export const countNumberOfCompletedTasks = (goal) => {
     return count;
 }
 
-export const selectImage = (numberOfCompletedTasks) => {
+const selectImage = (numberOfCompletedTasks) => {
     if (numberOfCompletedTasks > 4) {
         return (images.part6);
     } else if (numberOfCompletedTasks === 4){
@@ -29,22 +31,32 @@ export const selectImage = (numberOfCompletedTasks) => {
 }
 
 export function ContentInProgressNursery(props) {
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+        };
 
     return (
-        <div>
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+        
             {props.goalsData.map((goal) => {
                 if (goal.is_goal_completed === false) {
                 const total = countNumberOfCompletedTasks(goal);
                 console.log(total);
                 const plantImage = selectImage(total);
                 return (
-                    <Goal goal={goal} key={goal.id}
+                    <Carousel.Item>
+                        <Goal goal={goal} key={goal.id}
                     plantImage={plantImage}
-                    goalsData={props.goalsData} />
+                    goalsData={props.goalsData} 
+                    refreshData={props.refreshData}/>
+            </Carousel.Item>
                 )
             }
             })}
-        </div>
+        
+        </Carousel>
     )
 }
 

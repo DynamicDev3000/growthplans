@@ -6,6 +6,11 @@
   height: 350px;
 }
 
+.gardenpic{
+  width: 80px;
+  height: 80px;
+}
+
 .todo-list {
   background: #e8e8e8;
   border-radius: 4px;

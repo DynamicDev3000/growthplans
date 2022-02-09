@@ -23,7 +23,26 @@ const images = {
         path:  './06.png',
         alt:  'full blooms'
     },
-    
+    pond: {
+        path:  './pond.gif',
+        alt: 'pond'
+    },
+    waterFountain: {
+        path:  './waterFountain.jpg',
+        alt: 'water fountain'
+    },
+    frog: {
+        path:  './frog.gif',
+        alt: 'frog'
+    },
+    cat1 : {
+        path:  './cat1.png',
+        alt: 'cat'
+    },
+    cat2 : {
+        path:  './cat2.png',
+        alt: 'cat'
+    },
     gif: {
         path:  './gif.gif',
         alt:  'checkout the growing plant'

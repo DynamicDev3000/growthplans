@@ -9,7 +9,8 @@ export function PageContent(props) {
   if (currentPage === "In-Progress") {
     return <ContentInProgressNursery
       goalsData={props.goalsData}
-      numberOfCompletedTasks={props.numberOfCompletedTasks}/>;
+      numberOfCompletedTasks={props.numberOfCompletedTasks}
+      refreshData={props.refreshData}/>;
   }
   if (currentPage === "Set-Goals") {
     return <SetGoalForm 

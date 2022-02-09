@@ -61,9 +61,7 @@ export function SetGoalForm(props) {
         };
 
         props.addNewGoal(newGoal);
-        console.log(newGoal);
-        console.log(inputFields);
-        console.log(goalFields.difficulty);
+
         setGoalFormFields({
             title: "",
             due_date: "",
