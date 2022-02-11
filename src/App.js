@@ -6,6 +6,7 @@ import { Banner } from "./components/Banner";
 import axios from 'axios';
 import { SetGoalForm } from './components/SetGoalForm';
 import {Goal} from './components/Goal';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -65,11 +66,12 @@ function App() {
       <PageContent
         addNewGoal={addNewGoal}
         currentPageName={currentPageName}
+        setCurrentPageName={setCurrentPageName}
         goalsData={goalsData}
         numberOfCompletedTasks={numberOfCompletedTasks}
         refreshData={refreshData}
       />
-      {/* <iframe width="360" height="040" src="https://www.youtube.com/embed/lCroGB1huZU?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+      
     </div>
   );
 }

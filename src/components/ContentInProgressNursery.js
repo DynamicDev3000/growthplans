@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import images from "../assets/images/index.js";
 import { Goal } from "./Goal";
-import Draggable from "react-draggable";
 import Carousel from 'react-bootstrap/Carousel'
+import "../App.css";
 
 const countNumberOfCompletedTasks = (goal) => {
     let count = 0;
@@ -38,25 +38,31 @@ export function ContentInProgressNursery(props) {
         };
 
     return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-        
+        <>
+        <br></br>
+        <Carousel className="nursery" variant="dark" activeIndex={index} onSelect={handleSelect}>
             {props.goalsData.map((goal) => {
                 if (goal.is_goal_completed === false) {
                 const total = countNumberOfCompletedTasks(goal);
                 console.log(total);
                 const plantImage = selectImage(total);
                 return (
-                    <Carousel.Item>
+                    <Carousel.Item >
                         <Goal goal={goal} key={goal.id}
                     plantImage={plantImage}
                     goalsData={props.goalsData} 
-                    refreshData={props.refreshData}/>
-            </Carousel.Item>
+                    refreshData={props.refreshData}
+                    setCurrentPageName={props.setCurrentPageName}/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    </Carousel.Item>
+                    
                 )
             }
             })}
-        
         </Carousel>
+        </>
     )
 }
 

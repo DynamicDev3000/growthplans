@@ -24,12 +24,8 @@ const images = {
         alt:  'full blooms'
     },
     pond: {
-        path:  './pond.gif',
+        path:  './pond.png',
         alt: 'pond'
-    },
-    waterFountain: {
-        path:  './waterFountain.jpg',
-        alt: 'water fountain'
     },
     frog: {
         path:  './frog.gif',
@@ -42,6 +38,42 @@ const images = {
     cat2 : {
         path:  './cat2.png',
         alt: 'cat'
+    },
+    dog1 : {
+        path:  './dog1.png',
+        alt: 'dog'
+    },
+    catBallon : {
+        path:  './catBallon.png',
+        alt: 'cat ballons'
+    },
+    chick : {
+        path:  './chick.png',
+        alt: 'chick'
+    },
+    catBalloon : {   
+        path:  './catBalloon.png',
+        alt: 'cat ballons'
+    },
+    catCoding : {
+        path:  './catCoding.png',
+        alt: 'cat coding'
+    },
+    catPile : {
+        path:  './catPile.png',
+        alt: 'cat pile'
+    },
+    raccoon : {
+        path:  './raccoon.png',
+        alt: 'raccoon'
+    },
+    flowers: {
+        path:  './flowers.png',
+        alt: 'flowers'
+    },
+    roses: {
+        path:  './roses.png',
+        alt: 'roses'
     },
     gif: {
         path:  './gif.gif',

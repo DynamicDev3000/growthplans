@@ -6,6 +6,16 @@
   height: 350px;
 }
 
+.banner {
+  margin-top: -20%;
+  margin-bottom: -68%;
+  margin-left: -20%;
+  margin-right: -12%;
+  position: relative;
+  height: 55%;
+  width: 116%;
+  z-index: -55;
+}
 .gardenpic{
   width: 80px;
   height: 80px;
@@ -18,53 +28,163 @@
   padding: 5px;
 }
 
+.nursery {
+  position:relative
+}
+.nursery:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  background: url(https://www.picgifs.com/graphics/k/kawaii-scene/graphics-kawaii-scene-432830.gif) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 20% 0;
+  background-size: cover;
+}
+.nursery-content {
+  position: absolute;
+}
+
+.display-goal{
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  margin-right: 50px;
+  background-color: #abd1c6;
+  opacity: .85;
+  border-radius: 18px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
 .todo {
   align-items: center;
-  background: #fff;
+  align-content: center;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   display: flex;
   font-size: 12px;
   justify-content: space-between;
   margin-bottom: 6px;
-  padding: 3px 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 15%;
+  padding-right: 15%;
+  list-style-type: none;
 }
-/* .App {
-  display: grid; 
-  grid-auto-flow: row dense; 
-  grid-auto-rows: 1fr 1fr 1fr; 
-  grid-template-columns: 2fr; 
-  grid-template-rows: 0.9fr 0.6fr 0.4fr 2.4fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "Header"
-    "Inspo"
-    "Navigation"
-    "Goals-Area"; 
-  justify-content: center; 
-  align-content: center; 
-  justify-items: stretch; 
-  align-items: stretch; 
-  width: 600px; 
-  height: 800px; 
+
+.goal {
+  position:relative
 }
-.Goals-Area {
-  display: grid; 
-  grid-auto-rows: 1fr 1fr 1fr 1fr; 
-  grid-template-columns: 0.6fr 1.4fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". ."
-    ". ."
-    ". ."
-    ". ."
-    ". ."; 
-  grid-area: Goals-Area; 
+.goal:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: url(https://i.pinimg.com/originals/96/82/5b/96825bf407ee51c7dfe285740eb4a656.gif) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 20% 0;
+  background-size: cover;
 }
-.Header { grid-area: Header; }
-.Inspo { grid-area: Inspo; }
-.Navigation { grid-area: Navigation; } */
+
+.goal-content {
+  position: relative;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  margin-right: 50px;
+  background-color: #abd1c6;
+  opacity: .85;
+  border-radius: 18px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.nursery-content {
+  position: relative;
+}
+
+.watering {
+  position:relative
+}
+.watering:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  background: url(https://cutewallpaper.org/25/anime-enchanted-wallpaper/enchanted-objects-places-and-potionsof-magitopia-part-one-pixel-art-background-anime-pixel-art-anime-background.gif) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 20% 0;
+  background-size: cover;
+}
+
+.watering-content {
+  position: relative;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  margin-right: 50px;
+  background-color: #abd1c6;
+  opacity: .85;
+  border-radius: 18px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.brag {
+  position:relative
+}
+.brag:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: url(https://www.picgifs.com/graphics/k/kawaii-scene/graphics-kawaii-scene-432830.gif) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 20% 0;
+  background-size: cover;
+  
+}
+
+.hasPlant{
+  opacity: .9;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+.noPlant{
+  opacity: 0.1;
+}
+
+.brag-content {
+  position: relative;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  margin-right: 50px;
+  background-color: #abd1c6;
+  opacity: .90;
+  border-radius: 18px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
 
 .App-logo {
   height: 40vmin;

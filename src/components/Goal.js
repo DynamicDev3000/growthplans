@@ -9,12 +9,24 @@ import axios from "axios";
 export function Goal(props) {
     const goal = props.goal;
     const plantImage = props.plantImage;
+    const currentPageName = props.currentPageName;
 
     const completeTodo = (task) => {
     axios
         .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_complete`)
         .then(res => {
+            //if in res.data goal.is_goal_completed is true
+            //set goal.is_goal_completed to true
+            //set goal.is_goal_completed to true
+            
+            console.log(res.data);
+            if (res.data.goal.is_goal_completed === true) {
+                alert("Congratulations! You have completed your goal! 🎉 🥳  Go check your Garden! 💕");
+            }
             props.refreshData();
+            // if (goal.is_goal_completed === true) {
+            //     alert("Congrats! You've completed your goal! 🎉 Check your Garden!");
+            // }
         })
         };
 
@@ -39,7 +51,7 @@ export function Goal(props) {
 
     return (
         <>
-        <div key={goal.id}>
+        <div className="display-goal" key={goal.id}>
         <img src={plantImage.path} alt={plantImage.alt} className="pic"/>
         <h3><ul>{goal.title}</ul></h3>
         {goal.tasks.map((task) => {
@@ -49,14 +61,15 @@ export function Goal(props) {
             style={{ textDecoration: task.is_complete ? "line-through" : "" }}
         >       
                 <li key={task.id}> {task.description}</li>
-                <div>
+                <div >
+        <button onClick={() => props.setCurrentPageName("Watering-Station")}>Water</button>
         <button onClick={() => completeTodo(task)}>Complete</button>
         <button onClick={() => removeTodo(task)}>x</button>
         </div>
         </div>
         )
         })}
-        </div>
+        <br></br>
         <Button
         variant="outlined"
         type="edit"
@@ -71,6 +84,8 @@ export function Goal(props) {
         startIcon={<DeleteIcon />}>
         Delete Plan(t)
         </Button>
+        <br></br>
+        </div>
         </>
     );
 }

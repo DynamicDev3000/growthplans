@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import Draggable from "react-draggable";
-import {Goal} from "./Goal";
+import React from "react";
 import images from "../assets/images/index.js";
+import "../App.css";
+import ListGroup from 'react-bootstrap/ListGroup'
 
 const numberOfCompletedGoals = (goal) => {
     let count = 0;
@@ -15,64 +15,36 @@ const numberOfCompletedGoals = (goal) => {
 
 const selectGardenImage = (numberOfCompletedGoals) => {
     const gardenPictures = []
-    if (numberOfCompletedGoals > 1) {
-        gardenPictures.push(images.part4);
+    const toMeet =[1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 19, 22, 25, 27]
+    const parts = [images.part3.path, images.part4.path, images.part5.path, images.part6.path, images.pond.path, images.raccoon.path, images.frog.path, images.cat1.path, images.dog1.path, images.cat2.path, images.catCoding.path, images.chick.path, images.catBalloon.path, images.catPile.path]
+    let i, j;
+    for (i=0, j=0 ; i < toMeet.length; i++, j++) {
+        gardenPictures.push({path: parts[j], hasPlant: numberOfCompletedGoals > toMeet[i]});
     }
-    if (numberOfCompletedGoals > 2) {
-        gardenPictures.push(images.part4);
-    }
-    if (numberOfCompletedGoals > 3) {
-        gardenPictures.push(images.part5);
-    }
-    if (numberOfCompletedGoals > 4) {
-        gardenPictures.push(images.part6);
-    }
-    if (numberOfCompletedGoals > 5) {
-        gardenPictures.push(images.pond);
-    }
-    if (numberOfCompletedGoals > 6) {
-        gardenPictures.push(images.waterFountain);
-    }
-    if (numberOfCompletedGoals > 7) {
-        gardenPictures.push(images.frog);
-    }
-    if (numberOfCompletedGoals > 8) {
-        gardenPictures.push(images.frog);
-    }
-    if (numberOfCompletedGoals > 9) {
-        gardenPictures.push(images.cat1)
-    }
-    if (numberOfCompletedGoals > 10) {
-        gardenPictures.push(images.cat2)
-    }
-    console.log(gardenPictures)
-    return gardenPictures;
+    console.log(gardenPictures);
+    return gardenPictures; 
 }
 
 export function ContentInspirationStation(props) {
-    // const [selectGardenImage, setSelectGardenImage] = useState(props.selectImage);
-    
     const total = numberOfCompletedGoals (props.goalsData);
     const plantImages = selectGardenImage(total);
+
+
     return (
-    <div style = {{
-        backgroundImage:  'url("https://www.picgifs.com/graphics/k/kawaii-scene/graphics-kawaii-scene-432830.gif")',
-        // backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        // backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '55vh'
-        }}>'
-    <h1>Inspiration Station</h1>
-    <h2>Here are some of the goals you have completed!</h2>
+    <div className="brag">
+    <div className="brag-content">
+    <h2>Gotta catch them all!</h2>    
+                <ListGroup>
                 {plantImages.map((plantImage) => {
+                    const plantClass = plantImage.hasPlant ? "hasPlant" : "noPlant";
                 return (
-                    <div>
-                    <img src={images.pond.path} ></img>
-                    <img  key={plantImage.path} src={plantImage.path} alt={plantImage.alt} className='gardenpic'/>
-                    </div>
+                    <ListGroup.Item variant="success" className={plantClass}>
+                    <img key={plantImage.path} src={plantImage.path} alt={plantImage.alt} className='gardenpic'/>
+                    </ListGroup.Item>
                 )
                 })}
+                </ListGroup>
+            </div>
     </div>
     )
 }

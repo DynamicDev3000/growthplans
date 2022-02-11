@@ -1,3 +1,5 @@
+
+
 export const GetInspoQuote = () => {
     const affirmations = [
         "You got this",
@@ -60,6 +62,10 @@ export const GetInspoQuote = () => {
       const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
 
     return (
-        <div><p>Your inspiration for the day:  {getRandomAffirmation()}</p></div>
+        
+        <div>
+            
+            <p>Your inspiration for the day:  {getRandomAffirmation()}</p>
+        </div>
     );
 }

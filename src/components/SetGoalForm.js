@@ -11,6 +11,7 @@ import images from "../assets/images/index.js";
 import axios from 'axios';
 import App from "../App";
 import { v4 as uuidv4 } from 'uuid';
+import "../App.css";
 
 
 import Rating from '@mui/material/Rating';
@@ -117,7 +118,11 @@ export function SetGoalForm(props) {
     const classes = useStyles();
 
     return (
-        <Container>
+        <>
+        <br></br>
+        <Container className="goal">
+        <br></br>
+        <div className="goal-content">
         <form className={classes.root} onSubmit={handleSubmitNewGoal}>
         <h2>Let's get started by setting your plan(t) goals!</h2>
         <br></br>
@@ -204,9 +209,6 @@ export function SetGoalForm(props) {
                 </div>
             ))}
         <br></br>
-        <h3>Here is what your plant can look like as you complete your tasks!</h3>
-        <img src={images.gif.path} alt={images.gif.alt} />
-        <br></br>
         <Button
         className={classes.button}
         variant="contained" 
@@ -216,6 +218,10 @@ export function SetGoalForm(props) {
         onClick={handleSubmitNewGoal}
         >Send to Nursery</Button>
         </form>
+        </div>
+        <br></br>
         </Container>
+    </>
     )
+    
 }
