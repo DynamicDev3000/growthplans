@@ -4,25 +4,15 @@ import { GetInspoQuote } from "./containers/GetInspoQuote";
 import { Buttons } from "./components/Buttons";
 import { Banner } from "./components/Banner";
 import axios from 'axios';
-import { SetGoalForm } from './components/SetGoalForm';
+import { SetGoalForm } from './components/ContentSetGoalForm';
 import {Goal} from './components/Goal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   const [currentPageName, setCurrentPageName] = useState("In-Progress");
-  const [dataRetrieved, setDataRetrieved] = useState([]);
   const [goalsData, setGoalsData] = useState([]);
   const [numberOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACKEND_URL}/goals`)
-  //     .then((response) => {
-  //       setDataRetrieved(response.data);
-  //       // console.log(response.data);
-  //     });
-  // }, [goalsData]);
 
   function refreshData() {
     axios

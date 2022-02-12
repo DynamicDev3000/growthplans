@@ -43,9 +43,9 @@ const images = {
         path:  './dog1.png',
         alt: 'dog'
     },
-    catBallon : {
-        path:  './catBallon.png',
-        alt: 'cat ballons'
+    snail: {
+        path:  './snail.png',
+        alt: 'snail'
     },
     chick : {
         path:  './chick.png',
@@ -53,7 +53,7 @@ const images = {
     },
     catBalloon : {   
         path:  './catBalloon.png',
-        alt: 'cat ballons'
+        alt: 'Cat Balloon'
     },
     catCoding : {
         path:  './catCoding.png',

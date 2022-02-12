@@ -7,13 +7,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
-import images from "../assets/images/index.js";
-import axios from 'axios';
-import App from "../App";
-import { v4 as uuidv4 } from 'uuid';
 import "../App.css";
-
-
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
@@ -31,7 +25,7 @@ const labels = {
     5: 'Avengers, assemble!',
 };
 
-export function SetGoalForm(props) {
+export function ContentSetGoalForm(props) {
     const [goalFields, setGoalFormFields] = useState({
         title: "",
         due_date: "",
@@ -42,10 +36,6 @@ export function SetGoalForm(props) {
     const [inputFields, setInputFields]  = useState([
             {description: ''},
             ]);
-    
-    // const [inputFields, setInputFields] = useState([
-    //     { id: uuidv4(), taskDescription: '' },
-    //           ]);
 
     const [value, setValue] = useState(2);
     const [hover, setHover] = useState(-1);
@@ -80,29 +70,15 @@ export function SetGoalForm(props) {
         setInputFields(values);
         }
 
-    // const handleChangeInput = (id, event) => {
-    //     const newInputFields = inputFields.map(i => {
-    //       if(id === i.id) {
-    //         i[event.target.name] = event.target.value
-    //       }
-    //       return i;
-    //     })
-        
-    //     setInputFields(newInputFields);
-    //   }
     const handleAddFields = () => {
         setInputFields([...inputFields, {description: ''}])
     }  
-    // const handleAddFields = () => {
-    //     setInputFields([...inputFields, { id: uuidv4(),  taskDescription: ''}])
-    // }
     
     const handleRemoveFields = id => {
             const values  = [...inputFields];
             values.splice(values.findIndex(value => value.id === id), 1);
             setInputFields(values);
     }
-
 
     const useStyles = makeStyles((theme) => ({
             root: {
@@ -123,6 +99,7 @@ export function SetGoalForm(props) {
         <Container className="goal">
         <br></br>
         <div className="goal-content">
+        <form className={classes.root}></form>
         <form className={classes.root} onSubmit={handleSubmitNewGoal}>
         <h2>Let's get started by setting your plan(t) goals!</h2>
         <br></br>
@@ -196,7 +173,6 @@ export function SetGoalForm(props) {
                     value={inputField.description}
                     variant="outlined"
                     onChange={event => handleChangeInput(index, event)}
-                    // onChange={event => handleChangeInput(inputField.id, event)}
                     />
                 <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
                 <RemoveIcon />

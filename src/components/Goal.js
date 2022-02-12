@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import images from "../assets/images/index.js";
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -11,22 +11,16 @@ export function Goal(props) {
     const plantImage = props.plantImage;
     const currentPageName = props.currentPageName;
 
+
     const completeTodo = (task) => {
     axios
         .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_complete`)
         .then(res => {
-            //if in res.data goal.is_goal_completed is true
-            //set goal.is_goal_completed to true
-            //set goal.is_goal_completed to true
-            
             console.log(res.data);
             if (res.data.goal.is_goal_completed === true) {
                 alert("Congratulations! You have completed your goal! 🎉 🥳  Go check your Garden! 💕");
             }
             props.refreshData();
-            // if (goal.is_goal_completed === true) {
-            //     alert("Congrats! You've completed your goal! 🎉 Check your Garden!");
-            // }
         })
         };
 
@@ -48,7 +42,11 @@ export function Goal(props) {
         }
     }
 
-
+    const editGoal = (goal) => {
+        props.setCurrentPageName("Edit-Goal");
+        props.setGoalToEdit(goal);
+    }
+    
     return (
         <>
         <div className="display-goal" key={goal.id}>
@@ -73,7 +71,7 @@ export function Goal(props) {
         <Button
         variant="outlined"
         type="edit"
-        onClick={() => props.editGoal(goal.id)}
+        onClick={() => editGoal(goal)}
         startIcon={<EditIcon />}>
         Edit Plan(t)
         </Button>

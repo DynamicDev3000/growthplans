@@ -1,4 +1,4 @@
-
+import "../App.css";
 
 export const GetInspoQuote = () => {
     const affirmations = [
@@ -62,10 +62,10 @@ export const GetInspoQuote = () => {
       const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
 
     return (
-        
-        <div>
-            
-            <p>Your inspiration for the day:  {getRandomAffirmation()}</p>
+        <div className="quote">
+            <p>Your inspiration for the day:
+                <br/>  
+                {getRandomAffirmation()}</p>
         </div>
     );
 }

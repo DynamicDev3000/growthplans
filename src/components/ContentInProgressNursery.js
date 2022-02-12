@@ -44,7 +44,6 @@ export function ContentInProgressNursery(props) {
             {props.goalsData.map((goal) => {
                 if (goal.is_goal_completed === false) {
                 const total = countNumberOfCompletedTasks(goal);
-                console.log(total);
                 const plantImage = selectImage(total);
                 return (
                     <Carousel.Item >
@@ -52,7 +51,9 @@ export function ContentInProgressNursery(props) {
                     plantImage={plantImage}
                     goalsData={props.goalsData} 
                     refreshData={props.refreshData}
-                    setCurrentPageName={props.setCurrentPageName}/>
+                    setCurrentPageName={props.setCurrentPageName}
+                    setGoalToEdit={props.setGoalToEdit}
+                    />
                     <br></br>
                     <br></br>
                     <br></br>
