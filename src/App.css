@@ -5,15 +5,60 @@
   width: 350px;
   height: 350px;
 }
+.Navigation{
+  width: 100%;
+  height: 50px;
+  /* background-color: #e7d2d2;
+  opacity: 0.8; */
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 2%;
+}
+.buttons:hover{
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.15);
+}
+
+.divider{
+  width:10px;
+  height:auto;
+  display:inline-block;
+}
+
+.divider2{
+  width:3px;
+  height:auto;
+  display:inline-block;
+}
 .quote {
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
+  font-family: Fixed, monospace;
+  font-size: 15px;
   font-style: normal;
   color: #000000;
   text-align: center;
   padding-top: 20px;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  border-image-slice:84 136 77 135;
+  border-image-width:32px 23px 28px 27px;
+  border-image-outset:0px 0px 0px 0px;
+  border-image-repeat:stretch stretch;
+  border-image-source:url("https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Decorative-Elements-PNG/Wooden_Frame_Border_PNG_Clipart.png?m=1559095285");
+  
+  /* Without this the border will not show */
+  border-style: solid;
+  border-width: 5px;
+  width: 60%;
+  height: 50%;
+  margin-left: 20%;
+  margin-right: 20%;
+
+}
+.bold {
+  font-weight: bold;
 }
 .banner {
   margin-top: -20%;
@@ -25,9 +70,23 @@
   width: 116%;
   z-index: -55;
 }
+.welcome {
+  font-family: Snell Roundhand, cursive;
+  font-weight: bold;
+  font-size: 45px;
+}
 .gardenpic{
   width: 80px;
   height: 80px;
+}
+.name {
+  font-family: Snell Roundhand, cursive;
+  font-weight: bold;
+  font-size: 28px;
+}
+.left{
+  font-family: Fixed, monospace;
+  font-size: 10px;
 }
 
 .todo-list {
@@ -59,11 +118,11 @@
 }
 
 .display-goal{
-  padding: 30px;
+  padding: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: 60px;
-  margin-right: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
   background-color: #abd1c6;
   opacity: .85;
   border-radius: 18px;
@@ -73,13 +132,14 @@
 .todo {
   align-items: center;
   align-content: center;
+  font-family: Fixed, monospace;
+  font-size: 15px;
   border-radius: 3px;
   display: flex;
-  font-size: 12px;
   justify-content: space-between;
   margin-bottom: 6px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-left: 15%;
   padding-right: 15%;
   list-style-type: none;

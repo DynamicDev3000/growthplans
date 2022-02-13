@@ -21,7 +21,9 @@ export function PageContent(props) {
 
   if (currentPage === "Set-Goals") {
     return <ContentSetGoalForm 
-    addNewGoal={props.addNewGoal}/>;
+    addNewGoal={props.addNewGoal}
+    setCurrentPageName={props.setCurrentPageName}
+    />;
   }
 
   if (currentPage === "Trophy-Garden") {

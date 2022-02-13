@@ -63,9 +63,8 @@ export const GetInspoQuote = () => {
 
     return (
         <div className="quote">
-            <p>Your inspiration for the day:
-                <br/>  
-                {getRandomAffirmation()}</p>
+            <p className="bold">Your inspiration for the day:</p>
+            <p>{getRandomAffirmation()}</p>
         </div>
     );
 }

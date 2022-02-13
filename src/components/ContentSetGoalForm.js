@@ -161,8 +161,6 @@ export function ContentSetGoalForm(props) {
             />
         <br></br>
         <br></br>
-        <label>Subtasks</label>
-        <br></br>
         <h3>Add Subtasks</h3>
             {inputFields.map((inputField, index) => (
                 <div key={index}>
@@ -187,12 +185,20 @@ export function ContentSetGoalForm(props) {
         <br></br>
         <Button
         className={classes.button}
-        variant="contained" 
+        variant="outlined" 
         color="primary" 
         type="submit" 
         endIcon={<Icon>send</Icon>}
         onClick={handleSubmitNewGoal}
         >Send to Nursery</Button>
+        <Button
+        className={classes.button}
+        variant="outlined"
+        color="secondary"
+        type="cancel"
+        endIcon={<Icon>cancel</Icon>}
+        onClick={() => props.setCurrentPageName("In-Progress")}
+        >Cancel</Button>
         </form>
         </div>
         <br></br>

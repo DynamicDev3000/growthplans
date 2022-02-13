@@ -30,12 +30,8 @@ export function ContentSetGoalEditForm(props) {
     console.log(props)
     const [goalFields, setGoalFormFields] = useState({
         title: props.goalToEdit.title,
-        due_date: props.goalToEdit.due_date,
-        why: props.goalToEdit.why,
-        difficulty: props.goalToEdit.difficulty,
     });
     const [inputFields, setInputFields]  = useState(props.goalToEdit.tasks);
-
     const [value, setValue] = useState(props.goalToEdit.difficulty);
     const [hover, setHover] = useState(-1);
 
@@ -44,9 +40,6 @@ export function ContentSetGoalEditForm(props) {
 
         const goalToEdit = {
             title: goalFields.title,
-            due_date: goalFields.due_date,
-            why: goalFields.why,
-            difficulty: goalFields.difficulty,
             tasks: [...inputFields]
         };
 
@@ -54,6 +47,7 @@ export function ContentSetGoalEditForm(props) {
         .put(`${process.env.REACT_APP_BACKEND_URL}/goals/${props.goalToEdit.id}`, goalToEdit)
         .then((response) => {
             props.refreshData();
+            props.setCurrentPageName("In-Progress");
         })
         .catch((error) => {
             console.log("Error:", error);
@@ -110,7 +104,7 @@ export function ContentSetGoalEditForm(props) {
         <br></br>
             <TextField
                 name="title"
-                label="Enter a goal title"
+                label="Edit goal title"
                 type='text'
                 value={goalFields.title}
                 onChange={(event) => setGoalFormFields({...goalFields, title: event.target.value})}
@@ -166,9 +160,8 @@ export function ContentSetGoalEditForm(props) {
             />
         <br></br>
         <br></br>
-        <label>Subtasks</label>
         <br></br>
-        <h3>Add Subtasks</h3>
+        <h3>Edit Subtasks</h3>
             {inputFields.map((inputField, index) => (
                 <div key={index}>
                 <TextField
@@ -192,15 +185,22 @@ export function ContentSetGoalEditForm(props) {
         <br></br>
         <Button
         className={classes.button}
-        variant="contained" 
+        variant="outlined" 
         color="primary" 
         type="submit" 
         endIcon={<Icon>send</Icon>}
         onClick={handleEditGoal}
-        >Send to Nursery</Button>
+        >Send Updates to Nursery</Button>
+        <Button
+        className={classes.button}
+        variant="outlined"
+        color="secondary"
+        type="cancel"
+        endIcon={<Icon>cancel</Icon>}
+        onClick={() => props.setCurrentPageName("In-Progress")}
+        >Cancel</Button>
         </form>
         </div>
-        <br></br>
         </Container>
     </>
     )

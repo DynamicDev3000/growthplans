@@ -5,6 +5,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import "../App.css";
 import axios from "axios";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import ClearIcon from '@mui/icons-material/Clear';
+import ShowerIcon from '@mui/icons-material/Shower';
 
 export function Goal(props) {
     const goal = props.goal;
@@ -60,9 +63,28 @@ export function Goal(props) {
         >       
                 <li key={task.id}> {task.description}</li>
                 <div >
-        <button onClick={() => props.setCurrentPageName("Watering-Station")}>Water</button>
-        <button onClick={() => completeTodo(task)}>Complete</button>
-        <button onClick={() => removeTodo(task)}>x</button>
+        <Button
+        variant="outlined"
+        color="success"
+        startIcon={<ShowerIcon />}
+        onClick={() => props.setCurrentPageName("Watering-Station")}
+        >Water
+        </Button>
+        <div className="divider2"/>
+        <Button
+        onClick={() => completeTodo(task)}
+        variant="outlined"
+        color="success"
+        startIcon={<CheckCircleOutlineIcon />}>Done
+        </Button>
+        <div className="divider2"/>
+
+        <Button
+        variant="outlined"
+        color="success"
+        onClick={() => removeTodo(task)}
+        startIcon={<ClearIcon />}>Remove
+        </Button>
         </div>
         </div>
         )
@@ -71,13 +93,16 @@ export function Goal(props) {
         <Button
         variant="outlined"
         type="edit"
+        color="primary"
         onClick={() => editGoal(goal)}
         startIcon={<EditIcon />}>
         Edit Plan(t)
         </Button>
+        <div className="divider"/>
         <Button 
         variant="outlined" 
         type="submit"
+        color="secondary"
         onClick={() => removeGoal(goal.id)}
         startIcon={<DeleteIcon />}>
         Delete Plan(t)

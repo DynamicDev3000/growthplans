@@ -18,54 +18,43 @@ const selectGardenImage = (numberOfCompletedGoals) => {
     const gardenPictures = []
     const toMeet =[1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 19, 22, 25, 27]
     const parts = [images.part3.path, images.part4.path, images.part5.path, images.part6.path, images.pond.path, images.raccoon.path, images.frog.path, images.cat1.path, images.dog1.path, images.snail.path, images.catCoding.path, images.chick.path, images.catBalloon.path, images.catPile.path]
-
-    let i, j;
-    for (i=0, j=0 ; i < toMeet.length; i++, j++) {
-        gardenPictures.push({path: parts[j], hasPlant: numberOfCompletedGoals > toMeet[i]});
-    }
-    return gardenPictures; 
-}
-
-const badgeName = () => {
-    const badgeNamesList = []
     const names = [
         "Wink", 
         "Happy", 
         "Blossom", 
         "Smile", 
         "I'm a Potato", 
-        "Raccoon", 
         "Trash Panda", 
-        "Froggie", 
-        "Meow", 
+        "Garden Froggie", 
+        "Kitty", 
         "Meow Bear", 
         "Gary", 
         "Cat Coding", 
-        "Fluffly Chick", 
+        "Fluffy Chick", 
         "Up up and away", 
         "Ultimate Cat Pile"
     ]
-    return names;
-    }
-
-const nextUpgrade = () => {
-    const nextUpgradelist = []
     const lefttoUpgrade = [
-        "1 more goal to unlock next",
-        "1 more goals to unlock next",
-        "1 more goals to unlock next",
-        "1 more goals to unlock next",
-        "2 more goals to unlock next",
-        "2 more goals to unlock next",
-        "2 more goals to unlock next",
-        "2 more goals to unlock next",
-        "3 more goals to unlock next",
-        "3 more goals to unlock next",
-        "3 more goals to unlock next",
-        "3 more goals to unlock next",
-        "4 more goals to unlock next",
+        "1 more to unlock next ✨",
+        "1 more to unlock next ✨ ",
+        "1 more to unlock next ✨",
+        "1 more to unlock next ✨",
+        "2 more to unlock next ✨",
+        "2 more to unlock next ✨",
+        "2 more to unlock next ✨",
+        "2 more to unlock next ✨",
+        "3 more to unlock next ✨",
+        "3 more to unlock next ✨",
+        "3 more to unlock next ✨",
+        "3 more to unlock next ✨",
+        "4 more to unlock next ✨",
+        "Congratulations you have unlocked all characters!🎉"
     ]
-    return nextUpgrade;
+    let i, j, k, l;
+    for (i=0, j=0, k=0, l=0; i < toMeet.length; i++, j++, k++, l++) {
+        gardenPictures.push({path: parts[j], hasPlant: numberOfCompletedGoals > toMeet[i], name: names[k], leftToUpgrade: lefttoUpgrade[l]});
+    }
+    return gardenPictures; 
 }
 
 export function ContentTrophyGarden(props) {
@@ -73,24 +62,31 @@ export function ContentTrophyGarden(props) {
     const plantImages = selectGardenImage(total);
 
     return (
+    <>
+    <br></br>
     <div className="brag">
+    <br></br>
     <div className="brag-content">
-    <h2>Gotta catch them all!</h2> 
+    <h2>Gotta collect them all!</h2> 
     <h3>You've completed {total} goals!</h3>
     <h3>You've earned the following badges:</h3>
-                
                 {plantImages.map((plantImage) => {
                     const plantClass = plantImage.hasPlant ? "hasPlant" : "noPlant";
                 return (
                     <ListGroup >
                     <ListGroup.Item variant="success" className={plantClass}>
+                    <h3 className="name">{plantImage.name}</h3>    
                     <img key={plantImage.path} src={plantImage.path} alt={plantImage.alt} className='gardenpic'/>
+                    <br></br>
+                    <br></br>
+                    <h3 className="left">{plantImage.leftToUpgrade}</h3>
                     </ListGroup.Item>
                     </ListGroup>
                 )
                 })}
     </div>
     </div>
+    </>
     )
 }
 

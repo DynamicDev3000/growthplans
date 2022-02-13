@@ -6,7 +6,8 @@ export function Banner() {
 return (
     <header>
         <img className="banner" src={images.roses.path} alt={images.roses.alt} />
-    <h2>Welcome to your Growth Plan(t)s Garden!</h2>
+    <h2 className="welcome">Welcome to your</h2>
+    <h2 className="welcome">Growth Plans Garden!</h2>
     </header>
 )
 }

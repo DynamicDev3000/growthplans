@@ -4,7 +4,10 @@ import "../App.css";
 export function ContentWateringStation () {
 
     return (
-    <div className="watering"> 
+        <>
+        <br></br>
+    <div className="watering">
+        <br></br>
     <div className="watering-content">
         <br></br>
         <div className="watering-content">
@@ -15,5 +18,6 @@ export function ContentWateringStation () {
         <br></br>
     </div>
     </div>
+    </>
     )
 }
