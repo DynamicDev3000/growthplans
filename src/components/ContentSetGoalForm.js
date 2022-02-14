@@ -52,7 +52,8 @@ export function ContentSetGoalForm(props) {
         };
 
         props.addNewGoal(newGoal);
-
+        // console.log(newGoal);
+        //works here, console logs entire goal
         setGoalFormFields({
             title: "",
             due_date: "",
@@ -115,7 +116,9 @@ export function ContentSetGoalForm(props) {
         <br></br>
         <label>Deadline</label>
         <br></br>
-            <input type="date" name="deadline" placeholder="Enter a deadline"
+            <input type="date" 
+            name="deadline" 
+            placeholder="Enter a deadline"
             value={goalFields.due_date}
             onChange={(event) => setGoalFormFields({...goalFields, due_date: event.target.value})}
             />

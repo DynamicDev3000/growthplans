@@ -4,6 +4,7 @@ import { ContentTrophyGarden } from "./ContentTrophyGarden";
 import { ContentSetGoalForm } from "./ContentSetGoalForm";
 import { ContentWateringStation} from "./ContentWateringStation"
 import { ContentSetGoalEditForm } from "./ContentSetGoalEditForm";
+import { EndCredits } from "./EndCredits";
 
 export function PageContent(props) {
   const currentPage = props.currentPageName 
@@ -47,5 +48,12 @@ export function PageContent(props) {
       setCurrentPageName={props.setCurrentPageName}
       setGoaltoEdit={props.setGoaltoEdit}
       />
+  }
+  if (currentPage === "End-Credits") {
+    return <EndCredits 
+    goalsData={props.goalsData}
+    refreshData={props.refreshData}
+    />
+    
   }
 }

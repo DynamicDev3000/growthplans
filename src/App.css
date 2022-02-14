@@ -156,7 +156,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
+  opacity: 0.75;
   background: url(https://i.pinimg.com/originals/96/82/5b/96825bf407ee51c7dfe285740eb4a656.gif) no-repeat;
   background-repeat: no-repeat;
   background-position: 20% 0;
@@ -223,10 +223,11 @@
   width: 100%;
   height: 100%;
   opacity: 0.75;
-  background: url(https://www.picgifs.com/graphics/k/kawaii-scene/graphics-kawaii-scene-432830.gif) no-repeat;
-  background-repeat: no-repeat;
-  background-position: 20% 0;
-  background-size: cover;
+  background: url(https://www.picgifs.com/graphics/k/kawaii-scene/graphics-kawaii-scene-432830.gif);
+  /* background-repeat: no-repeat; */
+  background-position: 40% 0;
+  background-size: contain;
+  /* background-size: cover; */
 }
 .brag-content{
 
@@ -292,3 +293,76 @@
     transform: rotate(360deg);
   }
 }
+
+.end-credits {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #333;
+  background: #222;
+  border-top: 2px solid #f0f;
+  z-index: 9999;
+  }  
+  /*END*/
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* html, body {
+    height: 100%;
+  }
+  
+  body {
+    background: radial-gradient(ellipse at top left, #334455 0%, #112233 100%);
+    overflow: hidden;
+  } */
+  
+  .wrapper {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
+    font: 300 30px/1 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    animation: 60s credits linear infinite;
+  }
+  
+  .movie {
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
+  
+  .job {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+  .name {
+    margin-bottom: 50px;
+    font-size: 35px;
+  }
+  
+  @keyframes credits {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: -500%;
+    }
+  }

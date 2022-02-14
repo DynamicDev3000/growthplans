@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import Container from '@material-ui/core/Container';
 
 export function ContentWateringStation () {
 
     return (
         <>
         <br></br>
-    <div className="watering">
+    <Container className="watering">
         <br></br>
     <div className="watering-content">
         <br></br>
@@ -17,7 +18,7 @@ export function ContentWateringStation () {
         </div>
         <br></br>
     </div>
-    </div>
+    </Container>
     </>
     )
 }

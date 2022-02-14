@@ -36,7 +36,7 @@ export function Goal(props) {
         };
 
     const removeGoal = () => {
-        if (window.confirm("Are you really sure you want to delete your whole plan(t)?")) {
+        if (window.confirm("Are you really sure you want to delete your whole plan(t)?  Have you tried phoning a friend? 🤔")) {
         axios
             .delete(`https://growthplans.herokuapp.com/goals/${goal.id}`)
             .then(res => {
@@ -55,6 +55,8 @@ export function Goal(props) {
         <div className="display-goal" key={goal.id}>
         <img src={plantImage.path} alt={plantImage.alt} className="pic"/>
         <h3><ul>{goal.title}</ul></h3>
+        <h5><ul>Motivator: {goal.why}</ul></h5>
+        <h5><ul>Days left to complete: {goal.due_date}</ul></h5>
         {goal.tasks.map((task) => {
         return(  
             <div key = {task.id}

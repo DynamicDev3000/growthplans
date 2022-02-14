@@ -12,6 +12,8 @@ export function Buttons(props) {
         <Button className="buttons" variant="success" size="sm" onClick={() => props.setCurrentPageName("Trophy-Garden")}>Trophy Garden</Button>
         <div className="divider"/>
         <Button className="buttons" variant="success" size="sm" onClick={() => props.setCurrentPageName("Watering-Station")}>Watering Station</Button>
+        <div className="divider"/>
+        <Button className="buttons" variant="success" size="sm" onClick={() => props.setCurrentPageName("End-Credits")}>End Credits</Button>
     </div>
     )
 }

@@ -30,6 +30,7 @@ function App() {
   const addNewGoal = (newGoal) => {
     const goals = [...goalsData, newGoal];
     setGoalsData(goals)
+    console.log(newGoal)
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/goals`, newGoal)
       .then((response) => {

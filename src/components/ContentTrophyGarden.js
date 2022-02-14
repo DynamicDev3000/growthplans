@@ -2,7 +2,7 @@ import React from "react";
 import images from "../assets/images/index.js";
 import "../App.css";
 import ListGroup from 'react-bootstrap/ListGroup'
-import { ListGroupItem } from "react-bootstrap";
+import Container from '@material-ui/core/Container';
 
 const numberOfCompletedGoals = (goal) => {
     let count = 0;
@@ -64,7 +64,7 @@ export function ContentTrophyGarden(props) {
     return (
     <>
     <br></br>
-    <div className="brag">
+    <Container className="brag">
     <br></br>
     <div className="brag-content">
     <h2>Gotta collect them all!</h2> 
@@ -85,7 +85,7 @@ export function ContentTrophyGarden(props) {
                 )
                 })}
     </div>
-    </div>
+    </Container>
     </>
     )
 }

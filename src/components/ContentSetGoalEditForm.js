@@ -30,10 +30,13 @@ export function ContentSetGoalEditForm(props) {
     console.log(props)
     const [goalFields, setGoalFormFields] = useState({
         title: props.goalToEdit.title,
+        due_date: props.goalToEdit.due_date,
+        why: props.goalToEdit.why,
+        difficulty: props.goalToEdit.difficulty
     });
     const [inputFields, setInputFields]  = useState(props.goalToEdit.tasks);
     const [value, setValue] = useState(props.goalToEdit.difficulty);
-    const [hover, setHover] = useState(-1);
+    const [hover, setHover] = useState(props.goalToEdit.difficulty);
 
     const handleEditGoal = (submitEvent) => {
         submitEvent.preventDefault();

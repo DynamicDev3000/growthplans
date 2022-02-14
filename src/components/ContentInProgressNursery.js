@@ -3,6 +3,7 @@ import images from "../assets/images/index.js";
 import { Goal } from "./Goal";
 import Carousel from 'react-bootstrap/Carousel'
 import "../App.css";
+import Container from '@material-ui/core/Container';
 
 const countNumberOfCompletedTasks = (goal) => {
     let count = 0;
@@ -40,7 +41,8 @@ export function ContentInProgressNursery(props) {
     return (
         <>
         <br></br>
-        <Carousel className="nursery" variant="dark" activeIndex={index} onSelect={handleSelect}>
+        <Container className="nursery">
+        <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
             {props.goalsData.map((goal) => {
                 if (goal.is_goal_completed === false) {
                 const total = countNumberOfCompletedTasks(goal);
@@ -63,6 +65,7 @@ export function ContentInProgressNursery(props) {
             }
             })}
         </Carousel>
+        </Container>
         </>
     )
 }
