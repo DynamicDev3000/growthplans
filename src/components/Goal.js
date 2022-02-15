@@ -52,6 +52,42 @@ export function Goal(props) {
         props.setGoalToEdit(goal);
     }
 
+
+
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ]
+    const days = [
+        'Sun',
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thu',
+        'Fri',
+        'Sat'
+    ]
+
+    const d = new Date(goal.due_date)  
+    const monthName = months[d.getMonth()]
+    const dayName = days[d.getDay()]
+    const year = d.getFullYear()
+    const date = d.getDate()
+    const formatted = `${dayName}, ${date} ${monthName} ${year}`
+
+    const deadline = new Date(goal.due_date)  
+    const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'};
+    //deadline.toLocaleDateString()
     return (
         <>
             <div className="display-goal" key={goal.id}>
@@ -68,8 +104,9 @@ export function Goal(props) {
                         icon={<StarIcon fontSize="inherit" />}
                     /></ul></h5>
                 <h5><ul>Deadline: {goal.due_date}</ul></h5>
+                <h5><ul>Countdown: {goal.days_left} ⏱</ul></h5>
                 <h5><ul>Motivator: {goal.why}</ul></h5>
-                <h5><ul>Countdown to due date: {goal.days_left}</ul></h5>
+                
                 {goal.tasks.map((task) => {
                     return (
                         <div key={task.id}

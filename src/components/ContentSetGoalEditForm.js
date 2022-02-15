@@ -107,7 +107,7 @@ export function ContentSetGoalEditForm(props) {
                 <br></br>
                 <div className="goal-content">
                     <form className={classes.root} onSubmit={handleEditGoal}>
-                        <h2>Need to edit your plan(t) goals?  Let's do it!</h2>
+                        <h2 className="bold">Need to edit your plan(t) goals?  Let's do it!</h2>
                         <br></br>
                         <TextField
                             name="title"
@@ -119,21 +119,20 @@ export function ContentSetGoalEditForm(props) {
                             fullWidth
                         />
                         <br></br>
-                        <label>Deadline</label>
                         <br></br>
+                        <h4><label className="bold">Deadline</label></h4>
                         <input type="date" name="deadline" placeholder="Enter a deadline"
                             value={goalFields.due_date}
                             onChange={(event) => setGoalFormFields({ ...goalFields, due_date: event.target.value })}
                         />
                         <br></br>
                         <br></br>
-                        <label>Difficulty </label>
-                        <br></br>
+                        <h4><label className="bold">Difficulty </label></h4>
                         <Box
                             sx={{
-                                width: 600,
                                 display: 'flex',
                                 alignItems: 'center',
+                                justifyContent: 'center',
                             }}
                         >
                             <Rating
@@ -154,11 +153,10 @@ export function ContentSetGoalEditForm(props) {
                             )}
                         </Box>
                         <br></br>
-                        <br></br>
-                        <label>Goal Description - why do you want to accomplish this?</label>
+                        <h4><label className="bold">Edit Goal Description</label></h4>
                         <TextField
                             name="why"
-                            label="Enter a goal description"
+                            label="Why do REALLY you want to accomplish this?"
                             type='text'
                             value={goalFields.why}
                             onChange={(event) => setGoalFormFields({ ...goalFields, why: event.target.value })}
@@ -167,8 +165,7 @@ export function ContentSetGoalEditForm(props) {
                         />
                         <br></br>
                         <br></br>
-                        <br></br>
-                        <h3>Edit Subtasks</h3>
+                        <h4><label className="bold">Edit Subtasks</label></h4>
                         {inputFields.map((inputField, index) => (
                             <div key={index}>
                                 <TextField

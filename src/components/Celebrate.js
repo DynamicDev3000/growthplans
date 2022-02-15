@@ -6,8 +6,6 @@ import StarIcon from '@mui/icons-material/Star';
 
 export function Celebrate(props) {
 
-
-
     return (
         <>
             <br></br>
@@ -17,7 +15,8 @@ export function Celebrate(props) {
                     <div className="music">
                         <iframe width="360" height="40" src="https://www.youtube.com/embed/QqLs0CBNoSA?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div className="greeting"><h2>You have completed all these goals! 🎉 </h2></div>
+                    <div className="greeting">
+                        <h2 className="bold">You have completed all these goals! 🎉 </h2></div>
                     <img className="groot" src="https://c.tenor.com/pCPENOxdCjQAAAAC/groot-dancing.gif" alt="standing-ovation" ></img>
                     <div className="end-credits">
                         <div className="wrapper">

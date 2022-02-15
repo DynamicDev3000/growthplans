@@ -67,7 +67,7 @@ export function ContentTrophyGarden(props) {
             <Container className="brag">
                 <br></br>
                 <div className="brag-content">
-                    <h2>You are now a certified plant parent! 🏆</h2>
+                    <h2 className="bold">You are now a certified plant parent! 🏆</h2>
                     <h3>You've completed {total} goals and earned the following badges:</h3>
                     {plantImages.map((plantImage) => {
                         const plantClass = plantImage.hasPlant ? "hasPlant" : "noPlant";
