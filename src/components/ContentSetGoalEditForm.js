@@ -48,7 +48,7 @@ export function ContentSetGoalEditForm(props) {
             difficulty: goalFields.difficulty,
             tasks: [...inputFields]
         };
-
+        console.log(updatedGoalToEdit)
         axios
             .put(`${process.env.REACT_APP_BACKEND_URL}/goals/${props.goalToEdit.id}`, updatedGoalToEdit)
             .then((response) => {

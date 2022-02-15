@@ -69,7 +69,7 @@ export function Goal(props) {
                     /></ul></h5>
                 <h5><ul>Deadline: {goal.due_date}</ul></h5>
                 <h5><ul>Motivator: {goal.why}</ul></h5>
-                <h5><ul>Days left to complete: {goal.days_left}</ul></h5>
+                <h5><ul>Countdown to due date: {goal.days_left}</ul></h5>
                 {goal.tasks.map((task) => {
                     return (
                         <div key={task.id}
