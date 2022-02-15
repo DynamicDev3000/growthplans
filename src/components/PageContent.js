@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ContentInProgressNursery } from "./ContentInProgressNursery";
 import { ContentTrophyGarden } from "./ContentTrophyGarden";
 import { ContentSetGoalForm } from "./ContentSetGoalForm";
-import { ContentWateringStation} from "./ContentWateringStation"
+import { ContentWateringStation } from "./ContentWateringStation"
 import { ContentSetGoalEditForm } from "./ContentSetGoalEditForm";
-import { EndCredits } from "./EndCredits";
+import { Celebrate } from "./Celebrate";
 
 export function PageContent(props) {
-  const currentPage = props.currentPageName 
+  const currentPage = props.currentPageName
   const [goalToEdit, setGoalToEdit] = useState(null);
 
   if (currentPage === "In-Progress") {
@@ -17,20 +17,20 @@ export function PageContent(props) {
       refreshData={props.refreshData}
       currentPageName={props.currentPageName}
       setCurrentPageName={props.setCurrentPageName}
-      setGoalToEdit={setGoalToEdit}/>
+      setGoalToEdit={setGoalToEdit} />
   }
 
   if (currentPage === "Set-Goals") {
-    return <ContentSetGoalForm 
-    addNewGoal={props.addNewGoal}
-    setCurrentPageName={props.setCurrentPageName}
+    return <ContentSetGoalForm
+      addNewGoal={props.addNewGoal}
+      setCurrentPageName={props.setCurrentPageName}
     />;
   }
 
   if (currentPage === "Trophy-Garden") {
     return <ContentTrophyGarden
-    goalsData={props.goalsData}
-    numberOfCompletedTasks={props.numberOfCompletedTasks}/>;
+      goalsData={props.goalsData}
+      numberOfCompletedTasks={props.numberOfCompletedTasks} />;
   }
 
   if (currentPage === "Watering-Station") {
@@ -47,13 +47,12 @@ export function PageContent(props) {
       currentPageName={props.currentPageName}
       setCurrentPageName={props.setCurrentPageName}
       setGoaltoEdit={props.setGoaltoEdit}
-      />
-  }
-  if (currentPage === "End-Credits") {
-    return <EndCredits 
-    goalsData={props.goalsData}
-    refreshData={props.refreshData}
     />
-    
+  }
+  if (currentPage === "Celebrate") {
+    return <Celebrate
+      goalsData={props.goalsData}
+    />
+
   }
 }

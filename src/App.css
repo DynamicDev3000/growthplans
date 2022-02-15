@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+  font-family: playfair display;
 }
+
 .pic{
   width: 350px;
   height: 350px;
@@ -16,8 +18,14 @@
   z-index: 1;
   padding-top: 2%;
 }
+
+.buttons{
+  font-size: 18px;
+}
+
 .buttons:hover{
   background-color: rgb(255, 255, 255);
+  font-size: 18px;
   transform: scale(1.15);
 }
 
@@ -34,7 +42,7 @@
 }
 .quote {
   font-family: Fixed, monospace;
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   color: #000000;
   text-align: center;
@@ -47,8 +55,6 @@
   border-image-outset:0px 0px 0px 0px;
   border-image-repeat:stretch stretch;
   border-image-source:url("https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Decorative-Elements-PNG/Wooden_Frame_Border_PNG_Clipart.png?m=1559095285");
-  
-  /* Without this the border will not show */
   border-style: solid;
   border-width: 5px;
   width: 60%;
@@ -73,7 +79,7 @@
 .welcome {
   font-family: Snell Roundhand, cursive;
   font-weight: bold;
-  font-size: 45px;
+  font-size: 55px;
 }
 .gardenpic{
   width: 80px;
@@ -132,8 +138,7 @@
 .todo {
   align-items: center;
   align-content: center;
-  font-family: Fixed, monospace;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
@@ -294,75 +299,107 @@
   }
 }
 
-.end-credits {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 40px;
+
+.wrapper {
+  position: relative;
   margin: auto;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #333;
-  background: #222;
-  border-top: 2px solid #f0f;
-  z-index: 9999;
-  }  
-  /*END*/
+  font-family: Abadi MT Condensed;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  animation: 15s credits linear infinite;
+  animation-delay: 1s;
+  padding-bottom: 30px;
+  padding-right: 15%;
+}
+
+.end-credits {
+  background: radial-gradient(ellipse at top left);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+  overflow: hidden;
   
-  @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* html, body {
-    height: 100%;
-  }
-  
-  body {
-    background: radial-gradient(ellipse at top left, #334455 0%, #112233 100%);
-    overflow: hidden;
-  } */
-  
-  .wrapper {
-    position: absolute;
+}
+
+@keyframes credits {
+  0% {
     top: 100%;
-    left: 50%;
-    width: 400px;
-    margin-left: -200px;
-    font: 300 30px/1 'Open Sans Condensed', sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    animation: 60s credits linear infinite;
   }
+  100% {
+    top: -100%;
+  }
+}
+
+.standing-ovation {
+  position:relative
+}
+.standing-ovation:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  background: url(https://cutewallpaper.org/25/anime-enchanted-wallpaper/enchanted-objects-places-and-potionsof-magitopia-part-one-pixel-art-background-anime-pixel-art-anime-background.gif) no-repeat;
+  background-repeat: no-repeat;
+  background-position: 20% 0;
+  background-size: cover;
+}
+
+.standing-ovation-content{
+  position: relative;
+  display: grid;
+  grid-auto-flow: row dense; 
+  grid-auto-columns: 1fr; 
+  grid-auto-rows: 1fr 1fr 1fr; 
+  grid-template-columns: 1.5fr 1.5fr; 
+  grid-template-rows: 0.3fr 2.5fr 0.3fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+  "greeting greeting"
+  "groot end-credits"
+  "music music"; 
+  justify-content: center; 
+  align-content: center; 
+  justify-items: stretch; 
+  align-items: center; 
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #abd1c6;
+  opacity: .90;
+  border-radius: 18px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.music { grid-area: music; 
+  opacity: .6;
+  margin-top: 10px;
+}
+
+.greeting { grid-area: greeting;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.groot{
+  position:relative;
+  border-radius: 8%;
+  align-items: center; 
+  padding-left: 16%;
+  padding-right: 16%;
   
-  .movie {
-    margin-bottom: 50px;
-    font-size: 50px;
-  }
-  
-  .job {
-    margin-bottom: 5px;
-    font-size: 18px;
-  }
-  
-  .name {
-    margin-bottom: 50px;
-    font-size: 35px;
-  }
-  
-  @keyframes credits {
-    0% {
-      top: 100%;
-    }
-    100% {
-      top: -500%;
-    }
-  }
+}
+.groot:hover {
+  transform: scaleX(-1);
+}
+
+
+
+

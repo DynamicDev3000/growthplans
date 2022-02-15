@@ -59,7 +59,7 @@ export const GetInspoQuote = () => {
         "But what is grief, if not love persevering? - Vision"
     ];
 
-      const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
+    const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
 
     return (
         <div className="quote">

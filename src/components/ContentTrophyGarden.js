@@ -16,22 +16,22 @@ const numberOfCompletedGoals = (goal) => {
 
 const selectGardenImage = (numberOfCompletedGoals) => {
     const gardenPictures = []
-    const toMeet =[1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 19, 22, 25, 27]
+    const toMeet = [1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 19, 22, 25, 27]
     const parts = [images.part3.path, images.part4.path, images.part5.path, images.part6.path, images.pond.path, images.raccoon.path, images.frog.path, images.cat1.path, images.dog1.path, images.snail.path, images.catCoding.path, images.chick.path, images.catBalloon.path, images.catPile.path]
     const names = [
-        "Wink", 
-        "Happy", 
-        "Blossom", 
-        "Smile", 
-        "I'm a Potato", 
-        "Trash Panda", 
-        "Garden Froggie", 
-        "Kitty", 
-        "Meow Bear", 
-        "Gary", 
-        "Cat Coding", 
-        "Fluffy Chick", 
-        "Up up and away", 
+        "Wink",
+        "Happy",
+        "Blossom",
+        "Smile",
+        "I'm a Potato",
+        "Trash Panda",
+        "Garden Froggie",
+        "Kitty",
+        "Meow Bear",
+        "Gary",
+        "Cat Coding",
+        "Fluffy Chick",
+        "Up up and away",
         "Ultimate Cat Pile"
     ]
     const lefttoUpgrade = [
@@ -51,45 +51,45 @@ const selectGardenImage = (numberOfCompletedGoals) => {
         "Congratulations you have unlocked all characters!🎉"
     ]
     let i, j, k, l;
-    for (i=0, j=0, k=0, l=0; i < toMeet.length; i++, j++, k++, l++) {
-        gardenPictures.push({path: parts[j], hasPlant: numberOfCompletedGoals > toMeet[i], name: names[k], leftToUpgrade: lefttoUpgrade[l]});
+    for (i = 0, j = 0, k = 0, l = 0; i < toMeet.length; i++, j++, k++, l++) {
+        gardenPictures.push({ path: parts[j], hasPlant: numberOfCompletedGoals > toMeet[i], name: names[k], leftToUpgrade: lefttoUpgrade[l] });
     }
-    return gardenPictures; 
+    return gardenPictures;
 }
 
 export function ContentTrophyGarden(props) {
-    const total = numberOfCompletedGoals (props.goalsData);
+    const total = numberOfCompletedGoals(props.goalsData);
     const plantImages = selectGardenImage(total);
 
     return (
-    <>
-    <br></br>
-    <Container className="brag">
-    <br></br>
-    <div className="brag-content">
-    <h2>Gotta collect them all!</h2> 
-    <h3>You've completed {total} goals!</h3>
-    <h3>You've earned the following badges:</h3>
-                {plantImages.map((plantImage) => {
-                    const plantClass = plantImage.hasPlant ? "hasPlant" : "noPlant";
-                return (
-                    <ListGroup >
-                    <ListGroup.Item variant="success" className={plantClass}>
-                    <h3 className="name">{plantImage.name}</h3>    
-                    <img key={plantImage.path} src={plantImage.path} alt={plantImage.alt} className='gardenpic'/>
-                    <br></br>
-                    <br></br>
-                    <h3 className="left">{plantImage.leftToUpgrade}</h3>
-                    </ListGroup.Item>
-                    </ListGroup>
-                )
-                })}
-    </div>
-    </Container>
-    </>
+        <>
+            <br></br>
+            <Container className="brag">
+                <br></br>
+                <div className="brag-content">
+                    <h2>You are now a certified plant parent! 🏆</h2>
+                    <h3>You've completed {total} goals and earned the following badges:</h3>
+                    {plantImages.map((plantImage) => {
+                        const plantClass = plantImage.hasPlant ? "hasPlant" : "noPlant";
+                        return (
+                            <ListGroup >
+                                <ListGroup.Item variant="success" className={plantClass}>
+                                    <h3 className="name">{plantImage.name}</h3>
+                                    <img key={plantImage.path} src={plantImage.path} alt={plantImage.alt} className='gardenpic' />
+                                    <br></br>
+                                    <br></br>
+                                    <h3 className="left">{plantImage.leftToUpgrade}</h3>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        )
+                    })}
+                </div>
+                <br></br>
+            </Container>
+        </>
     )
 }
 
 
-                
+
 

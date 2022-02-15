@@ -4,8 +4,6 @@ import { GetInspoQuote } from "./containers/GetInspoQuote";
 import { Buttons } from "./components/Buttons";
 import { Banner } from "./components/Banner";
 import axios from 'axios';
-import { SetGoalForm } from './components/ContentSetGoalForm';
-import {Goal} from './components/Goal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -39,7 +37,7 @@ function App() {
       .catch((error) => {
         console.log("Error:", error);
         alert("Couldn't create a new goal because a field is missing");
-        
+
       });
   };
 
@@ -51,8 +49,8 @@ function App() {
     <div className="App">
       <Banner />
       <GetInspoQuote />
-      <Buttons 
-      setCurrentPageName={setCurrentPageName}
+      <Buttons
+        setCurrentPageName={setCurrentPageName}
       />
       <PageContent
         addNewGoal={addNewGoal}
@@ -62,7 +60,7 @@ function App() {
         numberOfCompletedTasks={numberOfCompletedTasks}
         refreshData={refreshData}
       />
-      
+
     </div>
   );
 }
