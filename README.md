@@ -1,8 +1,6 @@
 <h1>Growth Plans<h1>
   <h2>Problem Statement:</h2>
-What if your growth plans were plants?  
-
-A virtual garden that grows with you as you achieve your goals!  
+What if your growth plans were plants?  Growth Plans is a virtual garden that grows with you as you achieve your goals!  
 
 Like many of you during COVID, I gave plant mom a shot.  Sadly, I do not have a green thumb, but what if growing plants was linked to growing you?  What if your goals did not have to die like your IRL plants?  Introducing Growth Plans!  Unlike your boring to-do-list, Growth Plans offers you the opportunity to grow your virtual garden while completing your goals.  Virtual plant parenting and adulting combined!
 
