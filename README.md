@@ -11,7 +11,9 @@ An inspirational quote that will update on page refreshing.
 Set and edit your own goals to include a description of your goal, difficulty level, reason why you want to complete the goal, due date and subtasks.
 Unlock Trophies in your garden the more goals you complete.
 Watering station offers the user a Promodoro Timer with an option for lofi/focus music, so you can focus on completing your tasks.
-Finally, the Celebrate will show the user a strolling component displaying all the goals the user has completed, along with a hype man and music.  
+Finally, the Celebrate will show the user a strolling component displaying all the goals the user has completed, along with a hype man and music. 
+
+![Screen Shot 2022-02-15 at 9 07 34 PM](https://user-images.githubusercontent.com/88695862/154183066-b78158ad-da10-4941-8aba-badb2672d05d.png)
 
 Dependencies:
 
@@ -36,3 +38,5 @@ Dependencies:
    "react-dom": "^17.0.2",
    "react-scripts": "5.0.0",
    "web-vitals": "^2.1.4"
+   
+   
