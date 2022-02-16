@@ -16,7 +16,7 @@ const numberOfCompletedGoals = (goal) => {
 
 const selectGardenImage = (numberOfCompletedGoals) => {
     const gardenPictures = []
-    const toMeet = [1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 19, 22, 25, 27]
+    const toMeet = [1, 2, 4, 6, 9, 12, 15, 19, 23, 27, 31, 35, 40, 45]
     const parts = [images.part3.path, images.part4.path, images.part5.path, images.part6.path, images.pond.path, images.raccoon.path, images.frog.path, images.cat1.path, images.dog1.path, images.snail.path, images.catCoding.path, images.chick.path, images.catBalloon.path, images.catPile.path]
     const names = [
         "Wink",
@@ -37,17 +37,17 @@ const selectGardenImage = (numberOfCompletedGoals) => {
     const lefttoUpgrade = [
         "1 more to unlock next ✨",
         "1 more to unlock next ✨ ",
-        "1 more to unlock next ✨",
-        "1 more to unlock next ✨",
         "2 more to unlock next ✨",
         "2 more to unlock next ✨",
-        "2 more to unlock next ✨",
-        "2 more to unlock next ✨",
-        "3 more to unlock next ✨",
         "3 more to unlock next ✨",
         "3 more to unlock next ✨",
         "3 more to unlock next ✨",
         "4 more to unlock next ✨",
+        "4 more to unlock next ✨",
+        "4 more to unlock next ✨",
+        "4 more to unlock next ✨",
+        "5 more to unlock next ✨",
+        "5 more to unlock next ✨",
         "Congratulations you have unlocked all characters!🎉"
     ]
     let i, j, k, l;

@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
 export function Celebrate(props) {
-
+    console.log(props.goalsData)
     return (
         <>
             <br></br>
@@ -23,6 +23,7 @@ export function Celebrate(props) {
                             {props.goalsData.map((goal) => {
                                 if (goal.is_goal_completed === true) {
                                     return (
+                                        <>
                                         <div key={goal.id}>
                                             <h3 className="bold"><ul>{goal.title}</ul></h3>
                                             <h5><ul>Difficulty:
@@ -39,6 +40,7 @@ export function Celebrate(props) {
                                             <h5><ul>Motivator: {goal.why}</ul></h5>
                                             <br></br>
                                         </div>
+                                        </>
                                     )
                                 }
                             })}
