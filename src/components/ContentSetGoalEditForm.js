@@ -128,11 +128,12 @@ export function ContentSetGoalEditForm(props) {
                         <br></br>
                         <br></br>
                         <h4><label className="bold">Difficulty </label></h4>
+                        <div className="rating-box">
                         <Box
                             sx={{
+                                width: '100%',
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center',
                             }}
                         >
                             <Rating
@@ -151,7 +152,9 @@ export function ContentSetGoalEditForm(props) {
                             {value !== null && (
                                 <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
                             )}
+                        
                         </Box>
+                        </div>
                         <br></br>
                         <h4><label className="bold">Edit Goal Description</label></h4>
                         <TextField

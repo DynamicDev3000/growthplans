@@ -17,6 +17,11 @@
   padding-top: 2%;
 }
 
+.rating-box{
+  width: 100%;
+  position: relative;
+  left: 40%;
+}
 .buttons{
   font-size: 18px;
   padding-bottom: 15%;
