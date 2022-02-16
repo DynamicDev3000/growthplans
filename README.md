@@ -5,6 +5,7 @@ A virtual garden that grows with you as you achieve your goals!
 Like many of you during COVID, I gave plant mom a shot.  Sadly, I do not have a green thumb, but what if growing plants was linked to growing you?  What if your goals did not have to die like your IRL plants?  Introducing Growth Plans!  Unlike your boring to-do-list, Growth Plans offers you the opportunity to grow your virtual garden while completing your goals.  Virtual plant parenting and adulting combined!
 
 Features:
+
 Gamifying to-do list with a reward of growing garden plants.
 An inspirational quote that will update on page refreshing.  
 Set and edit your own goals to include a description of your goal, difficulty level, reason why you want to complete the goal, due date and subtasks.
@@ -13,6 +14,7 @@ Watering station offers the user a Promodoro Timer with an option for lofi/focus
 Finally, the Celebrate will show the user a strolling component displaying all the goals the user has completed, along with a hype man and music.  
 
 Dependencies:
+
   "@emotion/react": "^11.7.1",
    "@emotion/styled": "^11.6.0",
    "@material-ui/core": "^4.12.3",
