@@ -56,7 +56,10 @@ export const GetInspoQuote = () => {
         "I’m made of rocks, as you can see, but don’t let that intimidate you. You don’t need to be afraid, unless you’re made of scissors! Just a little rock-paper-scissors joke for you! —Korg",
         "You never know. You hope for the best and make do with what you get -Nick Fury",
         "I make grave mistakes all the time. Everything seems to work out - Thor",
-        "But what is grief, if not love persevering? - Vision"
+        "But what is grief, if not love persevering? - Vision",
+        "Your doubts create mountains.  Your actions, move them - Mel Robbins",
+        "Doubting yourself is normal.  Letting it stop you is a choice - Mel Robbins",
+        "There is no right time, there is only right now",
     ];
 
     const getRandomAffirmation = () => affirmations[Math.floor(Math.random() * affirmations.length)];
