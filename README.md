@@ -4,7 +4,8 @@
  What if we could gamefy this?
  Could we combine virtual plant parenting and adulting?  
  So it was born!
-  ![Screen Shot 2022-02-18 at 9 56 51 AM](https://user-images.githubusercontent.com/88695862/154706724-fff5ffb8-d97d-4c1f-b27d-40a4de77e063.png)
+
+![Screen Shot 2022-02-18 at 9 56 51 AM](https://user-images.githubusercontent.com/88695862/154706724-fff5ffb8-d97d-4c1f-b27d-40a4de77e063.png)
 
 ![Screen Shot 2022-02-17 at 11 39 25 PM](https://user-images.githubusercontent.com/88695862/154618700-147d51e0-da15-4954-9267-eac1a5e5c647.png)
 
@@ -83,5 +84,5 @@ To Visit App on your platform:  localhost:3000
   
 Deployed sample found here: https://dynamicdev3000.github.io/growthplans/
 
-App's back-end is currently deployed through Heroku.  You'd need your own back-end to save your own data.  Back-end can be found here: https://github.com/DynamicDev3000/growthplans-back-end
+Page's back-end is currently deployed through Heroku.  You'd need your own back-end to save your own data.  Back-end can be found here: https://github.com/DynamicDev3000/growthplans-back-end
    
