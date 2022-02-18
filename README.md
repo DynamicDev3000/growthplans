@@ -15,7 +15,7 @@ Set, edit or remove your own goals to include a description of your goal, diffic
 ![Screen Shot 2022-02-15 at 9 07 41 PM](https://user-images.githubusercontent.com/88695862/154183221-fd551e09-c05f-4689-9a2a-f9ebc6a754b9.png)
 
 
-Unlock Trophies in your garden the more goals you complete.
+Unlock Trophies in your garden the more goals you complete.  Unlocking new trophies will increase in difficulty as you complete more goals.  
 ![Screen Shot 2022-02-15 at 9 07 52 PM](https://user-images.githubusercontent.com/88695862/154183242-cecdea27-641f-4f15-8e21-7545767d2a96.png)
 
 
@@ -23,7 +23,7 @@ Click "water" on your plant or go to the Watering station to set time aside to w
 ![Screen Shot 2022-02-17 at 11 26 58 PM](https://user-images.githubusercontent.com/88695862/154617750-fdc599d0-5536-4d16-9918-bf819e53e2db.png)
 
 
-Finally, the Celebrate will show the user a strolling component displaying all the goals the user has completed, along with a hype man and music.
+Finally, the Celebrate button will show the user a strolling component displaying all the goals the user has completed, along with a hype dancing Groot and Celebrate music.
 ![Screen Shot 2022-02-17 at 11 27 22 PM](https://user-images.githubusercontent.com/88695862/154617778-131395d4-646f-4dc2-99f6-5eeac0d7847f.png)
 
 
