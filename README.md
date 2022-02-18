@@ -10,6 +10,7 @@ An inspirational quote that will update on page refreshing.
   
 As you complete a task, click "done" and your little plant will grow!  Celebrate the small victories!
 ![gif](https://user-images.githubusercontent.com/88695862/154618964-438136bd-8938-45ea-b5cf-87e1dc64dfa4.gif)
+Illustration done by Maria at Fiverr.  Check out her work!  https://www.fiverr.com/mariangehc
 
 Set, edit or remove your own goals to include a description of your goal, difficulty level, reason why you want to complete the goal, due date and subtasks.
 ![Screen Shot 2022-02-15 at 9 07 41 PM](https://user-images.githubusercontent.com/88695862/154183221-fd551e09-c05f-4689-9a2a-f9ebc6a754b9.png)
