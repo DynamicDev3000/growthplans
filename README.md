@@ -1,9 +1,6 @@
 <h1>Growth Plans<h1>
  <h4>Origin story:  </h4>
- Plant mom gone Thanos
- What if we could gamefy this?
- Could we combine virtual plant parenting and adulting?  
- So it was born!
+ Plant mom gone Thanos killing all her plants.  What if we could gamefy this?  Could we combine virtual plant parenting and adulting?  So it was born!
 
 ![Screen Shot 2022-02-18 at 9 56 51 AM](https://user-images.githubusercontent.com/88695862/154706724-fff5ffb8-d97d-4c1f-b27d-40a4de77e063.png)
 
@@ -25,19 +22,23 @@ As you complete a task, click "done" and your little plant will grow in stages! 
  Illustration done by Maria at Fiverr.  Check out her work!  https://www.fiverr.com/mariangehc
 
  <h4>Set Plan(t) Goals</h4>
-Set, edit or remove your own goals to include a description of your goal, difficulty level, reason why you want to complete the goal, due date and a dynamic addition of subtasks.  Click send to nursery to add the goal to your nursery or cancel.  
+Set, edit or remove your own goals to include a description of your goal, difficulty level, reason why you want to complete the goal, due date and a dynamic addition of subtasks.  Click send to nursery to add the goal to your nursery or cancel.
+
 ![Screen Shot 2022-02-15 at 9 07 41 PM](https://user-images.githubusercontent.com/88695862/154183221-fd551e09-c05f-4689-9a2a-f9ebc6a754b9.png)
 
  <h4>Trophy Garden</h4>
-Unlock Trophies in your garden the more goals you complete.  Unlocking new trophies will increase in difficulty as you complete more goals.  
+Unlock Trophies in your garden the more goals you complete.  Unlocking new trophies will increase in difficulty as you complete more goals.
+
 ![Screen Shot 2022-02-15 at 9 07 52 PM](https://user-images.githubusercontent.com/88695862/154183242-cecdea27-641f-4f15-8e21-7545767d2a96.png)
 
  <h4>Watering Station</h4>
 Click "water" on your plant or go to the Watering station to set time aside to work on your goal.  This section offers a hover over feature to teach users about the 5 second rule along with a Promodoro Timer with an option for lofi/focus music, so you can focus on completing your tasks.
+
 ![Screen Shot 2022-02-17 at 11 26 58 PM](https://user-images.githubusercontent.com/88695862/154617750-fdc599d0-5536-4d16-9918-bf819e53e2db.png)
 
  <h4>Celebrate</h4>
 Finally, the Celebrate button will show the user a strolling component in an "ending movie credits" style displaying all the goals the user has completed, along with a hype dancing Groot and Celebrate music.
+
 ![Screen Shot 2022-02-17 at 11 27 22 PM](https://user-images.githubusercontent.com/88695862/154617778-131395d4-646f-4dc2-99f6-5eeac0d7847f.png)
 
 
