@@ -10,23 +10,44 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ShowerIcon from '@mui/icons-material/Shower';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import UndoIcon from '@mui/icons-material/Undo';
 
 export function Goal(props) {
     const goal = props.goal;
     const plantImage = props.plantImage;
     const currentPageName = props.currentPageName;
+    const [buttonText, setButtonText] = useState("Done");
+    // const [buttonIcon, setButtonIcon] = useState(<CheckCircleOutlineIcon />);
 
+    const undoComplete = (task) => {
+        axios
+            .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_incomplete`)
+            .then(res => {
+                console.log(res);
+                props.refreshData();
+            })
+    };
 
     const completeTodo = (task) => {
         axios
             .patch(`https://growthplans.herokuapp.com/goals/${goal.id}/${task.id}/mark_complete`)
             .then(res => {
-                console.log(res.data);
                 if (res.data.goal.is_goal_completed === true) {
                     alert("Congratulations! You have completed your goal! 🎉 🥳  Go check your Garden! 💕");
                 }
                 props.refreshData();
             })
+    };
+
+    const handleTaskClick = (task) => {
+        console.log(task);
+        if (task.is_complete === true) {
+            console.log(task.is_complete);
+            undoComplete(task);
+        }
+        else {
+            completeTodo(task);
+        }
     };
 
     const removeTodo = (task) => {
@@ -45,49 +66,13 @@ export function Goal(props) {
                     props.refreshData();
                 })
         }
-    }
+    };
 
     const editGoal = (goal) => {
         props.setCurrentPageName("Edit-Goal");
         props.setGoalToEdit(goal);
-    }
+    };
 
-
-
-    const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-    ]
-    const days = [
-        'Sun',
-        'Mon',
-        'Tue',
-        'Wed',
-        'Thu',
-        'Fri',
-        'Sat'
-    ]
-
-    const d = new Date(goal.due_date)  
-    const monthName = months[d.getMonth()]
-    const dayName = days[d.getDay()]
-    const year = d.getFullYear()
-    const date = d.getDate()
-    const formatted = `${dayName}, ${date} ${monthName} ${year}`
-
-    const deadline = new Date(goal.due_date)  
-    const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'};
-    //deadline.toLocaleDateString()
     return (
         <>
             <div className="display-goal" key={goal.id}>
@@ -111,24 +96,27 @@ export function Goal(props) {
                     return (
                         <div key={task.id}
                             className="todo"
-                            style={{ textDecoration: task.is_complete ? "line-through" : "" }}
+                            style={{ 
+                                textDecoration: task.is_complete ? "line-through" : "" 
+                            }}
                         >
                             <li key={task.id}> {task.description}</li>
                             <div >
                                 <Button
                                     variant="outlined"
-                                    // color="success"
                                     startIcon={<ShowerIcon />}
                                     onClick={() => props.setCurrentPageName("Watering-Station")}
                                 >Water
                                 </Button>
                                 <div className="divider2" />
                                 <Button
-                                    onClick={() => completeTodo(task)}
+                                    onClick={() => handleTaskClick(task)}
                                     variant="outlined"
-                                    // color="success"
-                                    startIcon={<CheckCircleOutlineIcon />}>Done
-                                </Button>
+                                    startIcon={task.is_complete ? <UndoIcon /> : <CheckCircleOutlineIcon />}
+                                >{
+                                    task.is_complete ? "Undo" : "Done"
+                                }
+                                    </Button>
                                 <div className="divider2" />
 
                                 <Button
@@ -164,3 +152,4 @@ export function Goal(props) {
         </>
     );
 }
+
