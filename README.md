@@ -18,7 +18,9 @@ Landing page will display the in-progress nursery to allow users to plan their d
 ![Screen Shot 2022-02-15 at 9 07 34 PM](https://user-images.githubusercontent.com/88695862/154183066-b78158ad-da10-4941-8aba-badb2672d05d.png)
   
 As you complete a task, click "done" and your little plant will grow in stages!  Plant images have up to 6 different stages.  Users can be incentivized and celebrate the small victories seeing their plant grow and blossom!
+ 
 ![gif](https://user-images.githubusercontent.com/88695862/154618964-438136bd-8938-45ea-b5cf-87e1dc64dfa4.gif)
+
  Illustration done by Maria at Fiverr.  Check out her work!  https://www.fiverr.com/mariangehc
 
  <h4>Set Plan(t) Goals</h4>
